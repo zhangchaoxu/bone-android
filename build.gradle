@@ -64,9 +64,9 @@ ext.deps = [
         glide                   : 'com.github.bumptech.glide:glide:3.6.1',
 
         // db https://github.com/Raizlabs/DBFlow
-        dbflowprocessor         : 'com.github.Raizlabs.DBFlow:dbflow-processor:3.3.1',
-        dbflowccore             : 'com.github.Raizlabs.DBFlow:dbflow-core:3.3.1',
-        dbflow                  : 'com.github.Raizlabs.DBFlow:dbflow:3.3.1',
+        dbflowprocessor         : 'com.github.Raizlabs.DBFlow:dbflow-processor:3.1.1',
+        dbflowccore             : 'com.github.Raizlabs.DBFlow:dbflow-core:3.1.1',
+        dbflow                  : 'com.github.Raizlabs.DBFlow:dbflow:3.1.1',
 
         // test
         junit: 'junit:junit:4.12'

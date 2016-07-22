@@ -1,2 +1,1 @@
 include 'bone', ":EaseUI"
-//project(':bone').projectDir = new File('../../bone/library')
