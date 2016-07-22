@@ -1,0 +1,74 @@
+<resources>
+
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+    <string name="login">登录</string>
+    <string name="logout">退出登录</string>
+    <string name="delete">删除</string>
+    <string name="clear">清除</string>
+    <string name="search">搜索</string>
+    <string name="settings">设置</string>
+    <string name="about">关于</string>
+    <string name="empty"></string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="more">更多</string>
+    <string name="submit">提交</string>
+    <string name="close">关闭</string>
+    <string name="loading">加载中,请稍等&#8230;</string>
+
+    <!-- account -->
+    <string name="forget_pwd">忘记密码?</string>
+    <string name="register">注册</string>
+    <string name="pwd">密码</string>
+    <string name="account_username">用户名</string>
+    <string name="error_invalid_password">无效的密码</string>
+    <string name="error_field_required">该字段不能为空</string>
+    <string name="error_field_required_format">%s不能为空</string>
+    <string name="error_field_formatter">该字段格式不正确</string>
+    <string name="error_field_formatter_format">%s格式不正确</string>
+    <string name="error_invalid_username">无效的用户名</string>
+
+    <string name="unknown_error">未知错误</string>
+    <string name="msg_exit_back_tips">再按一次退出应用</string>
+    <string name="title_exit_dlg">退出提示:</string>
+    <string name="msg_exit_dlg">您确定退出应用吗？</string>
+    <string name="msg_exit_tip">再按一下退出应用</string>
+
+    <string name="msg_login_ing">登录中&#8230;</string>
+    <string name="msg_submit_ing">数据提交中&#8230;</string>
+    <string name="msg_wait">应用处理中,请稍等...</string>
+    <string name="network_unavailable">网络连接不可用</string>
+    <string name="tips_network_unavailable">您的设备未启动移动网络或无线局域网\n前往设置检查网络连接?</string>
+
+    <!-- photo pick -->
+    <string name="all_photos">所有图片</string>
+    <string name="take_photo">拍摄照片</string>
+    <string name="send">发送</string>
+    <string name="select">选择</string>
+    <string name="preview">预览</string>
+    <string name="photo_pick">图片选择</string>
+
+    <string name="socket_timeout_exception">服务器连接超时,请检查网络后重试</string>
+    <string name="api_exception">接口返回异常</string>
+    <string name="network_exception">网络访问异常,请检查网络后重试</string>
+    <string name="unknown_exception">发生未知错误</string>
+    <string name="json_exception">数据格式错误</string>
+    <string name="unknown_host_exception">未知目标域名错误</string>
+    <string name="class_cast_exception">数据类型转换错误</string>
+    <string name="io_exception">数据读写错误</string>
+    <string name="null_point_exception">空指针异常</string>
+    <string name="camera_permission_exception">调用摄像头拒绝,请在设置中允许</string>
+    <string name="permission_exception">权限异常</string>
+    <string name="camera_exception">摄像头读取失败</string>
+    <string name="photo_crop_exception">图片剪裁失败</string>
+    <string name="on_activity_result_data_null">返回数据失败</string>
+    <string name="picked_image_null">获取已选择图片失败</string>
+    <string name="load_fail_retry">加载失败，点击重新加载</string>
+
+    <string name="pick_photo_camera">拍照</string>
+    <string name="pick_photo_album">从相册选择</string>
+
+    <string name="no_system_download_service">"下载失败，你可能关闭了系统的\"下载管理器\"，请到设置里面开启"</string>
+
+</resources>

@@ -1,0 +1,354 @@
+package com.idogfooding.bone.ui;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.alibaba.fastjson.JSONException;
+import com.idogfooding.bone.BaseApplication;
+import com.idogfooding.bone.R;
+import com.idogfooding.bone.network.ApiException;
+import com.idogfooding.bone.utils.AppManager;
+import com.umeng.analytics.MobclickAgent;
+import com.zhy.autolayout.AutoLayoutActivity;
+
+import java.io.Serializable;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
+
+import butterknife.ButterKnife;
+
+/**
+ * Base Activity of all activities of Application
+ *
+ * @author Charles
+ */
+public abstract class BaseActivity extends AutoLayoutActivity {
+
+    protected final String TAG = getClass().getSimpleName();
+
+    Toolbar mToolbar;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // before content view
+        beforeContentView();
+        setContentView(getLayoutId());
+        Log.d(TAG, TAG + ".onCreate...");
+        // after content view
+        afterContentView(savedInstanceState);
+
+        // add the activity into the stack
+        AppManager.getAppManager().addActivity(this);
+        MobclickAgent.openActivityDurationTrack(false);
+    }
+
+    /**
+     * Get content view to be used when {@link #onCreate(Bundle)} is called
+     *
+     * @return layout resource id
+     */
+    protected abstract int getLayoutId();
+
+    /**
+     * init before content view
+     */
+    protected void beforeContentView() {
+        // empty
+    }
+
+    /**
+     * init after content view
+     */
+    protected void afterContentView(Bundle savedInstanceState) {
+        ButterKnife.bind(this);
+        initActionBar(isShowHomeAsUp());
+    }
+
+    // [+] actionbar
+    public Toolbar getToolbar() {
+        return mToolbar;
+    }
+
+    protected void hideToolbar(boolean hidden) {
+        if (null != mToolbar) {
+            if (hidden && mToolbar.isShown()) {
+                mToolbar.setVisibility(View.GONE);
+            } else if (!hidden && !mToolbar.isShown()) {
+                mToolbar.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    public void setSubTitle(String subtitle) {
+        if (null != mToolbar) {
+            mToolbar.setSubtitle(subtitle);
+        }
+    }
+
+    public void setSubTitle(int resId) {
+        setSubTitle(getString(resId));
+    }
+
+    /**
+     * initActionBar
+     */
+    protected final void initActionBar(boolean showHomeAsUp) {
+        // set Toolbar as actionbar
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (null == mToolbar)
+            return;
+
+        setSupportActionBar(mToolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (null != actionBar) {
+            actionBar.setDisplayHomeAsUpEnabled(showHomeAsUp);
+        }
+    }
+
+    protected boolean isShowHomeAsUp() {
+        return true;
+    }
+
+    // [-] actionbar
+
+    // [+] network
+    /**
+     * handle api error
+     * @param throwable
+     */
+    protected void handleNetworkError(Throwable throwable) {
+        int errorMsg = R.string.unknown_error;
+        if (throwable instanceof ApiException) {
+            handleApiError((ApiException)throwable);
+            return;
+        } else if (throwable instanceof NullPointerException) {
+            errorMsg = R.string.null_point_exception;
+        } else if (throwable instanceof UnknownHostException) {
+            errorMsg = R.string.unknown_host_exception;
+        } else if (throwable instanceof JSONException) {
+            errorMsg = R.string.json_exception;
+        } else if (throwable instanceof SocketTimeoutException) {
+            errorMsg = R.string.socket_timeout_exception;
+        }
+        BaseApplication.showToast(errorMsg);
+    }
+
+    /**
+     * handle biz api error
+     * @param apiException
+     */
+    protected void handleApiError(ApiException apiException) {}
+    // [-] network
+
+    // [+] Options Menu
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case Menu.FIRST:
+                return onFirstMenuSelected(item);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        addMenuItem(menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    /**
+     * add single menu item
+     *
+     * @param menu
+     * @return
+     */
+    protected void addMenuItem(Menu menu) {
+        // add menu like this
+        // menu.add(Menu.NONE, Menu.FIRST, Menu.NONE, R.string.register).setIcon(R.drawable.ic_action_add).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+    }
+
+    /**
+     * on first menu selected/click event
+     *
+     * @param item
+     * @return
+     */
+    protected boolean onFirstMenuSelected(MenuItem item) {
+        return false;
+    }
+
+    // [-] Options Menu
+
+    // [+] Progress Dialog
+    /**
+     * Shows the progress UI and hides the login_bg form.
+     */
+    private MaterialDialog mProgressDialog;
+
+    public void hiddenProgress() {
+        if (null != mProgressDialog && mProgressDialog.isShowing() && !isFinishing())
+            mProgressDialog.dismiss();
+    }
+
+    public void showProgress(int contentResId) {
+        showProgress(getString(contentResId));
+    }
+
+    public void showProgress(String content) {
+        if (null == mProgressDialog) {
+            mProgressDialog = new MaterialDialog.Builder(this)
+                    .content(content)
+                    .progress(true, 0)
+                    .cancelable(false)
+                    .show();
+        } else {
+            mProgressDialog.setContent(content);
+            mProgressDialog.show();
+        }
+    }
+    // [-] Progress Dialog
+
+    // [+] start activity
+    protected void goActivity(Intent intent) {
+        goActivity(false, intent);
+    }
+
+    protected void goActivity(boolean isFinish, Intent intent) {
+        startActivity(intent);
+        if (isFinish) {
+            finish();
+        }
+    }
+    // [-] start activity
+
+    // [+] Intent extra
+
+    /**
+     * Get intent extra
+     *
+     * @param name
+     * @return serializable
+     */
+    @SuppressWarnings("unchecked")
+    protected <V extends Serializable> V getSerializableExtra(final String name) {
+        return (V) getIntent().getSerializableExtra(name);
+    }
+
+    /**
+     * Get intent extra
+     *
+     * @param name
+     * @return int
+     */
+    protected int getIntExtra(final String name) {
+        return getIntent().getIntExtra(name, -1);
+    }
+
+    /**
+     * Get intent extra
+     *
+     * @param name
+     * @return long
+     */
+    protected long getLongExtra(final String name) {
+        return getIntent().getLongExtra(name, -1l);
+    }
+
+    /**
+     * Get intent extra
+     *
+     * @param name
+     * @return int array
+     */
+    protected int[] getIntArrayExtra(final String name) {
+        return getIntent().getIntArrayExtra(name);
+    }
+
+    /**
+     * Get intent extra
+     *
+     * @param name
+     * @return boolean
+     */
+    protected boolean getBooleanExtra(final String name) {
+        return getIntent().getBooleanExtra(name, false);
+    }
+
+    /**
+     * Get intent extra
+     *
+     * @param name
+     * @return boolean array
+     */
+    protected boolean[] getBooleanArrayExtra(final String name) {
+        return getIntent().getBooleanArrayExtra(name);
+    }
+
+    /**
+     * Get intent extra
+     *
+     * @param name
+     * @return string
+     */
+    protected String getStringExtra(final String name) {
+        return getIntent().getStringExtra(name);
+    }
+
+    /**
+     * Get intent extra
+     *
+     * @param name
+     * @return string array
+     */
+    protected String[] getStringArrayExtra(final String name) {
+        return getIntent().getStringArrayExtra(name);
+    }
+
+    /**
+     * Get intent extra
+     *
+     * @param name
+     * @return char sequence array
+     */
+    protected CharSequence[] getCharSequenceArrayExtra(final String name) {
+        return getIntent().getCharSequenceArrayExtra(name);
+    }
+    // [-] Intent extra
+
+    // [+] umeng analytics
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart(getClass().getSimpleName());
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd(getClass().getSimpleName());
+        MobclickAgent.onPause(this);
+    }
+    // [-] umeng analytics
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // end the Activity & remove it from stack
+        AppManager.getAppManager().finishActivity(this);
+    }
+}

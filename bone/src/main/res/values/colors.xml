@@ -1,0 +1,36 @@
+<resources>
+
+    <!-- material palette theme -->
+    <!-- http://www.materialpalette.com/blue/deep-orange -->
+    <color name="dark_primary">#1976D2</color>
+    <color name="primary">#2196F3</color>
+    <color name="light_primary">#BBDEFB</color>
+    <color name="accent">#FF5722</color>
+    <color name="text">#FFFFFF</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="divider">#B6B6B6</color>
+    <color name="window_background">#f9f9f9</color>
+
+    <!-- swipe refresh color -->
+    <color name="swipe_refresh_start">@color/dark_primary</color>
+    <color name="swipe_refresh_process">@color/primary</color>
+    <color name="swipe_refresh_end">@color/dark_primary</color>
+
+    <!-- button -->
+    <color name="button_color">@color/primary</color>
+    <color name="button_shadow_color">@color/dark_primary</color>
+
+	<!-- text color -->
+    <color name="normal_text_color">#ff353535</color>
+    <color name="normal_text_color_disabled">#7f353535</color>
+    <color name="white_color">@android:color/white</color>
+    <color name="white_color_disabled">#7fffffff</color>
+    <color name="text_color_clickable">#ff0b61d8</color>
+
+    <color name="bg_light">#fff8f8f8</color>
+    <color name="bg_light_selected">#ffdddddd</color>
+
+    <color name="white_pressed">#ffd5d5d5</color>
+
+</resources>

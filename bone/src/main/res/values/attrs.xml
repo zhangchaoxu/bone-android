@@ -1,0 +1,22 @@
+<resources>
+
+	<!-- ListRow -->
+	<declare-styleable name="ListRow">
+		<attr name="row_title" format="string|reference"/>
+		<attr name="row_subtitle" format="string|reference"/>
+		<attr name="row_arrow" format="boolean"/>
+		<attr name="row_icon" format="reference"/>
+		<attr name="row_checkbox" format="boolean"/>
+		<attr name="row_layout" format="integer|reference"/>
+	</declare-styleable>
+
+	<!-- Button -->
+	<declare-styleable name="Button">
+		<attr name="btn_shadowEnabled" format="boolean"/>
+		<attr name="btn_buttonColor" format="color"/>
+		<attr name="btn_shadowColor" format="color"/>
+		<attr name="btn_shadowHeight" format="dimension"/>
+		<attr name="btn_cornerRadius" format="dimension"/>
+	</declare-styleable>
+
+</resources>

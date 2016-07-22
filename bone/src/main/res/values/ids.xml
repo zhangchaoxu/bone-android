@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- base -->
+    <item type="id" name="root_view">false</item>
+
+    <!-- toolbar -->
+    <item type="id" name="toolbar">false</item>
+    <item type="id" name="toolbar_title">false</item>
+    <item type="id" name="toolbar_image">false</item>
+    <item type="id" name="toolbar_search_view">false</item>
+
+    <item type="id" name="fragment">false</item>
+    <item type="id" name="bottom_navigation">false</item>
+    <item type="id" name="fragment_container">false</item>
+
+    <!-- spinner -->
+    <item type="id" name="spinner_icon">false</item>
+    <item type="id" name="spinner_title">false</item>
+
+    <!-- ListRow -->
+    <item type="id" name="row_icon">false</item>
+    <item type="id" name="row_title">false</item>
+    <item type="id" name="row_subtitle">false</item>
+    <item type="id" name="row_checkbox">false</item>
+    <item type="id" name="row_arrow">false</item>
+
+    <!-- Toast -->
+    <item type="id" name="toast_icon">false</item>
+    <item type="id" name="toast_message">false</item>
+
+    <!-- List -->
+    <item type="id" name="swipe_item">false</item>
+
+    <!-- ExceptionView -->
+    <item type="id" name="view_exception">false</item>
+
+    <!-- tab -->
+    <item type="id" name="vp_pages">false</item>
+
+    <item type="id" name="item_click_support">false</item>
+
+</resources>
