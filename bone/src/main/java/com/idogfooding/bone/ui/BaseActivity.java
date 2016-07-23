@@ -1,6 +1,7 @@
 package com.idogfooding.bone.ui;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
@@ -101,7 +102,7 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     /**
      * initActionBar
      */
-    protected final void initActionBar(boolean showHomeAsUp) {
+    protected void initActionBar(boolean showHomeAsUp) {
         // set Toolbar as actionbar
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (null == mToolbar)
@@ -116,6 +117,25 @@ public abstract class BaseActivity extends AutoLayoutActivity {
 
     protected boolean isShowHomeAsUp() {
         return true;
+    }
+
+    protected boolean isDarkStatusIcon() {
+        return true;
+    }
+
+    protected void setDarkStatusIcon(boolean bDark) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            View decorView = getWindow().getDecorView();
+            if (decorView != null) {
+                int vis = decorView.getSystemUiVisibility();
+                if (bDark) {
+                    vis |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                } else {
+                    vis &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                }
+                decorView.setSystemUiVisibility(vis);
+            }
+        }
     }
 
     // [-] actionbar
@@ -146,7 +166,17 @@ public abstract class BaseActivity extends AutoLayoutActivity {
      * handle biz api error
      * @param apiException
      */
-    protected void handleApiError(ApiException apiException) {}
+    protected void handleApiError(ApiException apiException) {
+        if (apiException.isUnauthorized()) {
+            //AppContext.getInstance().accountLogout();
+            BaseApplication.showToast("登录信息失效,请重新登录!");
+            Intent intent = new Intent("LOGIN");
+            startActivity(intent);
+            AppManager.getAppManager().finishAllActivityExcept("LoginActivity");
+        } else {
+            BaseApplication.showToast(apiException.getMessage());
+        }
+    }
     // [-] network
 
     // [+] Options Menu

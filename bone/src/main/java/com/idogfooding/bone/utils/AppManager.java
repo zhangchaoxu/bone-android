@@ -113,6 +113,20 @@ public class AppManager {
     }
 
     /**
+     * end all the activities except Activity with class name
+     */
+    synchronized public void finishAllActivityExcept(String clsName) {
+        Stack<Activity> tempActivityStack = new Stack<Activity>();
+        tempActivityStack.addAll(activityStack);
+
+        for (Activity activity : tempActivityStack) {
+            if (!activity.getClass().getSimpleName().equalsIgnoreCase(clsName)) {
+                finishActivity(activity);
+            }
+        }
+    }
+
+    /**
      * end all the activity
      */
     synchronized public void finishAllActivity() {

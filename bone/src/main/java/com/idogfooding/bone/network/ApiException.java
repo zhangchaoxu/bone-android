@@ -20,4 +20,8 @@ public class ApiException extends RuntimeException {
         return this.code;
     }
 
+    public boolean isUnauthorized() {
+        return code == 401;
+    }
+
 }
