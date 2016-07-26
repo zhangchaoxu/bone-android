@@ -158,7 +158,9 @@ public abstract class BaseActivity extends AutoLayoutActivity {
 
         mToolbarDivider = mToolbar.findViewById(R.id.toolbar_divider);
         mToolbarTitle = (TextView) mToolbar.findViewById(R.id.toolbar_title);
-
+        if (mToolbarTitle != null) {
+            setTitle(getTitle());
+        }
         setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
         if (null != actionBar) {
@@ -229,7 +231,8 @@ public abstract class BaseActivity extends AutoLayoutActivity {
             startActivity(intent);
             AppManager.getAppManager().finishAllActivityExcept("LoginActivity");
         } else {
-            BaseApplication.showToast(apiException.getMessage());
+            Log.e(TAG, "接口返回异常,code:" + apiException.getCode() + ",msg=" + apiException.getMessage());
+            BaseApplication.showToast("接口返回异常,code:" + apiException.getCode() + ",msg=" + apiException.getMessage());
         }
     }
     // [-] network
