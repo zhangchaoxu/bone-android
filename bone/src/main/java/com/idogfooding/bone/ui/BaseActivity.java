@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.alibaba.fastjson.JSONException;
@@ -35,7 +37,10 @@ public abstract class BaseActivity extends AutoLayoutActivity {
 
     protected final String TAG = getClass().getSimpleName();
 
+    // toolbar
     Toolbar mToolbar;
+    TextView mToolbarTitle;
+    View mToolbarDivider;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -79,6 +84,35 @@ public abstract class BaseActivity extends AutoLayoutActivity {
         return mToolbar;
     }
 
+    protected void showHomeAsUp(boolean show) {
+        ActionBar actionBar = getSupportActionBar();
+        if (null == actionBar)
+            return;
+
+        if (show) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        } else {
+            actionBar.setDisplayHomeAsUpEnabled(false);
+        }
+    }
+
+    protected void changeTheme(int dividerVisible, int bgColor, int titleColor) {
+        if (null == mToolbar)
+            return;
+
+        mToolbar.setBackgroundColor(getResources().getColor(bgColor));
+        if (mToolbarTitle != null) {
+            mToolbarTitle.setTextColor((getResources().getColor(titleColor)));
+        }
+        if (mToolbarDivider != null) {
+            mToolbarDivider.setVisibility(dividerVisible);
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Window window = getWindow();
+            window.setStatusBarColor(getResources().getColor(bgColor));
+        }
+    }
+
     protected void hideToolbar(boolean hidden) {
         if (null != mToolbar) {
             if (hidden && mToolbar.isShown()) {
@@ -87,6 +121,20 @@ public abstract class BaseActivity extends AutoLayoutActivity {
                 mToolbar.setVisibility(View.VISIBLE);
             }
         }
+    }
+
+    @Override
+    public void setTitle(CharSequence title) {
+        if (null != mToolbarTitle) {
+            mToolbarTitle.setText(title);
+        } else {
+            super.setTitle(title);
+        }
+    }
+
+    @Override
+    public void setTitle(int titleId) {
+        this.setTitle(getString(titleId));
     }
 
     public void setSubTitle(String subtitle) {
@@ -108,9 +156,13 @@ public abstract class BaseActivity extends AutoLayoutActivity {
         if (null == mToolbar)
             return;
 
+        mToolbarDivider = mToolbar.findViewById(R.id.toolbar_divider);
+        mToolbarTitle = (TextView) mToolbar.findViewById(R.id.toolbar_title);
+
         setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
         if (null != actionBar) {
+            actionBar.setDisplayShowTitleEnabled(null == mToolbarTitle);
             actionBar.setDisplayHomeAsUpEnabled(showHomeAsUp);
         }
     }
@@ -141,14 +193,16 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     // [-] actionbar
 
     // [+] network
+
     /**
      * handle api error
+     *
      * @param throwable
      */
     protected void handleNetworkError(Throwable throwable) {
         int errorMsg = R.string.unknown_error;
         if (throwable instanceof ApiException) {
-            handleApiError((ApiException)throwable);
+            handleApiError((ApiException) throwable);
             return;
         } else if (throwable instanceof NullPointerException) {
             errorMsg = R.string.null_point_exception;
@@ -164,6 +218,7 @@ public abstract class BaseActivity extends AutoLayoutActivity {
 
     /**
      * handle biz api error
+     *
      * @param apiException
      */
     protected void handleApiError(ApiException apiException) {

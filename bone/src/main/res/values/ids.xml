@@ -9,6 +9,7 @@
     <item type="id" name="toolbar_title">false</item>
     <item type="id" name="toolbar_image">false</item>
     <item type="id" name="toolbar_search_view">false</item>
+    <item type="id" name="toolbar_divider">false</item>
 
     <item type="id" name="fragment">false</item>
     <item type="id" name="bottom_navigation">false</item>
