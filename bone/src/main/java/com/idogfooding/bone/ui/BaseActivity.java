@@ -39,7 +39,7 @@ public abstract class BaseActivity extends AutoLayoutActivity {
 
     // toolbar
     Toolbar mToolbar;
-    TextView mToolbarTitle;
+    public TextView mToolbarTitle;
     View mToolbarDivider;
 
     @Override
