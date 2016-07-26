@@ -17,6 +17,7 @@
     <string name="close">关闭</string>
     <string name="loading">加载中,请稍等&#8230;</string>
     <string name="edit">编辑</string>
+    <string name="agreement">我已经阅读并同意《用户使用协议》</string>
 
     <!-- account -->
     <string name="forget_pwd">忘记密码?</string>
