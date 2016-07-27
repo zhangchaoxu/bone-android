@@ -156,8 +156,8 @@ public abstract class BaseActivity extends AutoLayoutActivity {
         if (null == mToolbar)
             return;
 
-        mToolbarDivider = mToolbar.findViewById(R.id.toolbar_divider);
-        mToolbarTitle = (TextView) mToolbar.findViewById(R.id.toolbar_title);
+        mToolbarDivider = findViewById(R.id.toolbar_divider);
+        mToolbarTitle = (TextView) findViewById(R.id.toolbar_title);
         if (mToolbarTitle != null) {
             setTitle(getTitle());
         }
