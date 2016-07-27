@@ -8,6 +8,7 @@ import android.content.Context;
  * @author Charles
  */
 public class VersionUtils {
+
     /**
      * get the current version
      */

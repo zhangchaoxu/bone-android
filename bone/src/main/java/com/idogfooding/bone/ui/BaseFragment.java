@@ -1,5 +1,6 @@
 package com.idogfooding.bone.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,6 +14,7 @@ import com.alibaba.fastjson.JSONException;
 import com.idogfooding.bone.BaseApplication;
 import com.idogfooding.bone.R;
 import com.idogfooding.bone.network.ApiException;
+import com.idogfooding.bone.utils.AppManager;
 import com.umeng.analytics.MobclickAgent;
 
 import java.net.SocketTimeoutException;
@@ -98,7 +100,17 @@ public abstract class BaseFragment extends android.support.v4.app.Fragment {
      * handle biz api error
      * @param apiException
      */
-    protected void handleApiError(ApiException apiException) {}
+    protected void handleApiError(ApiException apiException) {
+        if (apiException.isUnauthorized()) {
+            //AppContext.getInstance().accountLogout();
+            BaseApplication.showToast("登录信息失效,请重新登录!");
+            Intent intent = new Intent(getContext().getPackageName() + ".USER.LOGIN");
+            startActivity(intent);
+            AppManager.getAppManager().finishAllActivityExcept("LoginActivity");
+        } else {
+            BaseApplication.showToast(apiException.getMessage());
+        }
+    }
     // [-] network
 
     // [+] Progress Dialog
