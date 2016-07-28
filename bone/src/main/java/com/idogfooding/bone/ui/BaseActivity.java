@@ -108,9 +108,13 @@ public abstract class BaseActivity extends AutoLayoutActivity {
         if (mToolbarDivider != null) {
             mToolbarDivider.setVisibility(dividerVisible);
         }
+        setStatusBarColor(bgColor);
+    }
+
+    protected void setStatusBarColor(int color) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             Window window = getWindow();
-            window.setStatusBarColor(getResources().getColor(bgColor));
+            window.setStatusBarColor(getResources().getColor(color));
         }
     }
 
