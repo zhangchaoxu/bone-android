@@ -76,6 +76,7 @@ public abstract class BaseActivity extends AutoLayoutActivity {
      */
     protected void afterContentView(Bundle savedInstanceState) {
         ButterKnife.bind(this);
+        setDarkStatusIcon(isDarkStatusIcon());
         initActionBar(isShowHomeAsUp());
     }
 
@@ -174,7 +175,7 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     }
 
     protected boolean isDarkStatusIcon() {
-        return true;
+        return false;
     }
 
     protected void setDarkStatusIcon(boolean bDark) {
