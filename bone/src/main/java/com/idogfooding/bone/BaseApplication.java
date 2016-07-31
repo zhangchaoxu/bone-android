@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -135,12 +136,20 @@ public class BaseApplication extends Application {
     }
 
     // [+] Last Refresh Time
+    public static void setRefreshTime(String key) {
+        setRefreshTime(key, Calendar.getInstance().get(Calendar.MILLISECOND));
+    }
+
     public static void setRefreshTime(String key, long value) {
         set("refresh_" + key, value);
     }
 
     public static long getRefreshTime(String key) {
         return get("refresh_" + key, 0L);
+    }
+
+    public static long getRefreshInterval(String key) {
+        return Calendar.getInstance().get(Calendar.MILLISECOND) - getRefreshTime(key);
     }
     // [-] Last Refresh Time
     // [-] Shared Preference
