@@ -131,7 +131,11 @@ public class BaseApplication extends Application {
         if (TextUtils.isEmpty(strValue)) {
             return t;
         } else {
-            return JSON.parseObject(strValue, clazz);
+            try {
+                return JSON.parseObject(strValue, clazz);
+            } catch (Exception e) {
+                return t;
+            }
         }
     }
 
