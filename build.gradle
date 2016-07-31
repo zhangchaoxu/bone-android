@@ -16,11 +16,11 @@ ext {
 
 ext.deps = [
         // support
-        supportv4               : 'com.android.support:support-v4:24.1.0',
-        appcompat               : 'com.android.support:appcompat-v7:24.1.0',
-        recyclerview            : 'com.android.support:recyclerview-v7:24.1.0',
-        cardview                : 'com.android.support:cardview-v7:24.1.0',
-        design                  : 'com.android.support:design:24.1.0',
+        supportv4               : 'com.android.support:support-v4:24.1.1',
+        appcompat               : 'com.android.support:appcompat-v7:24.1.1',
+        recyclerview            : 'com.android.support:recyclerview-v7:24.1.1',
+        cardview                : 'com.android.support:cardview-v7:24.1.1',
+        design                  : 'com.android.support:design:24.1.1',
         // multidex support {https://developer.android.com/tools/building/multidex.html}
         multidex                : 'com.android.support:multidex:1.0.1',
 
@@ -33,7 +33,7 @@ ext.deps = [
         logginginterceptor      : 'com.squareup.okhttp3:logging-interceptor:3.4.1',
 
         // rxjava https://github.com/ReactiveX/RxJava
-        rxjava                  : 'io.reactivex:rxjava:1.1.7',
+        rxjava                  : 'io.reactivex:rxjava:1.1.8',
         // rxandroid https://github.com/ReactiveX/rxandroid
         rxandroid               : 'io.reactivex:rxandroid:1.2.1',
         // rxpermissions https://github.com/tbruyelle/RxPermissions
@@ -58,15 +58,15 @@ ext.deps = [
         // PhotoPicker https://github.com/donglua/PhotoPicker
         PhotoPicker             : 'com.github.donglua:PhotoPicker:0.8.5@aar',
         // PhotoCrop https://github.com/Yalantis/uCrop
-        ucrop                   : 'com.yalantis:ucrop:2.1.1',
+        ucrop                   : 'com.yalantis:ucrop:2.1.2',
         // TabLayout https://github.com/H07000223/FlycoTabLayout
-        FlycoTabLayout          : 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.6@aar',
+        FlycoTabLayout          : 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.8@aar',
         // glide https://github.com/bumptech/glide
-        glide                   : 'com.github.bumptech.glide:glide:3.6.1',
-        // scaner https://github.com/dm77/barcodescanner
-        zxing                   : 'me.dm7.barcodescanner:zxing:1.8.4',
+        glide                   : 'com.github.bumptech.glide:glide:3.7.0',
+        // scanner https://github.com/dm77/barcodescanner
+        zxing                   : 'me.dm7.barcodescanner:zxing:1.9',
         // banner https://github.com/youth5201314/banner
-        banner                  : 'com.youth.banner:banner:1.1.3',
+        banner                  : 'com.youth.banner:banner:1.1.7',
 
         // db https://github.com/Raizlabs/DBFlow
         dbflowprocessor         : 'com.github.Raizlabs.DBFlow:dbflow-processor:3.1.1',
