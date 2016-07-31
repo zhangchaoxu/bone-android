@@ -5,6 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import com.idogfooding.bone.ui.BaseActivity;
 
 /**
@@ -38,10 +39,11 @@ public abstract class PagerActivity extends BaseActivity implements OnPageChange
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
         Fragment fragment = getFragment();
-        if (fragment != null)
-            return fragment.onOptionsItemSelected(item);
-
-        return super.onOptionsItemSelected(item);
+        if (fragment != null) {
+            return fragment.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
