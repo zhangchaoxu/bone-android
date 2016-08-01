@@ -76,6 +76,8 @@ dependencies {
     compile deps.materialdialogscore
     // PhotoPicker
     compile deps.PhotoPicker
+    // PhotoCompress
+    compile deps.luban
     // PhotoCrop
     compile deps.ucrop
     // TabLayout

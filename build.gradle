@@ -59,6 +59,8 @@ ext.deps = [
         PhotoPicker             : 'com.github.donglua:PhotoPicker:0.8.5@aar',
         // PhotoCrop https://github.com/Yalantis/uCrop
         ucrop                   : 'com.yalantis:ucrop:2.1.2',
+        // Photo Compress compile https://github.com/Curzibn/Luban
+        luban                   : 'top.zibin:Luban:1.0.3',
         // TabLayout https://github.com/H07000223/FlycoTabLayout
         FlycoTabLayout          : 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.8@aar',
         // glide https://github.com/bumptech/glide
