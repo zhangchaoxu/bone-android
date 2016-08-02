@@ -52,15 +52,15 @@ public class BaseApplication extends Application {
         return _resource;
     }
 
-    protected String getProcessName() {
+    protected boolean isProcessInRunning() {
         ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningAppProcessInfo> appList = activityManager.getRunningAppProcesses();
         for (ActivityManager.RunningAppProcessInfo info : appList) {
             if (info.pid == android.os.Process.myPid()) {
-                return info.processName;
+                return true;
             }
         }
-        return "";
+        return false;
     }
 
     // [+] Shared Preference
