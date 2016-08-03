@@ -80,6 +80,8 @@ dependencies {
     compile deps.luban
     // PhotoCrop
     compile deps.ucrop
+    // circleimageview
+    compile deps.circleimageview
     // TabLayout
     compile deps.FlycoTabLayout
     // glide

@@ -61,6 +61,8 @@ ext.deps = [
         ucrop                   : 'com.yalantis:ucrop:2.1.2',
         // Photo Compress compile https://github.com/Curzibn/Luban
         luban                   : 'top.zibin:Luban:1.0.3',
+        // circleimageview https://github.com/hdodenhof/CircleImageView
+        circleimageview         : 'de.hdodenhof:circleimageview:2.1.0',
         // TabLayout https://github.com/H07000223/FlycoTabLayout
         FlycoTabLayout          : 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.8@aar',
         // glide https://github.com/bumptech/glide
