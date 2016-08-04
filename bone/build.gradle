@@ -58,6 +58,7 @@ dependencies {
     compile deps.rxjava
     compile deps.rxandroid
     compile deps.rxpermissions
+    compile deps.rxpreferences
 
     // analytics
     compile deps.analytics

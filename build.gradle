@@ -38,6 +38,8 @@ ext.deps = [
         rxandroid               : 'io.reactivex:rxandroid:1.2.1',
         // rxpermissions https://github.com/tbruyelle/RxPermissions
         rxpermissions           : 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar',
+        // rxpreferences https://github.com/f2prateek/rx-preferences
+        rxpreferences           : 'com.f2prateek.rx.preferences:rx-preferences:1.0.2',
 
         // Analytics
         analytics               : 'com.umeng.analytics:analytics:6.0.1',
