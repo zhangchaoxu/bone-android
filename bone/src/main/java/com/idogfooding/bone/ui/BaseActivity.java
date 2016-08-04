@@ -18,6 +18,7 @@ import com.alibaba.fastjson.JSONException;
 import com.idogfooding.bone.BaseApplication;
 import com.idogfooding.bone.R;
 import com.idogfooding.bone.network.ApiException;
+import com.idogfooding.bone.rx.RxBus;
 import com.idogfooding.bone.utils.AppManager;
 import com.umeng.analytics.MobclickAgent;
 import com.zhy.autolayout.AutoLayoutActivity;
@@ -441,6 +442,8 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        // remove all rx event
+        RxBus.getDefault().removeAllStickyEvents();
         // end the Activity & remove it from stack
         AppManager.getAppManager().finishActivity(this);
     }
