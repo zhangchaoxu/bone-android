@@ -87,4 +87,5 @@ dependencies {
     compile deps.FlycoTabLayout
     // glide
     compile deps.glide
+    compile deps.glideOkhttp
 }

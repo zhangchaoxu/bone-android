@@ -69,6 +69,7 @@ ext.deps = [
         FlycoTabLayout          : 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.8@aar',
         // glide https://github.com/bumptech/glide
         glide                   : 'com.github.bumptech.glide:glide:3.7.0',
+        glideOkhttp             : 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar',
         // scanner https://github.com/dm77/barcodescanner
         zxing                   : 'me.dm7.barcodescanner:zxing:1.9',
         // banner https://github.com/youth5201314/banner
