@@ -20,16 +20,13 @@
     <application>
         <!-- photo picker start -->
         <activity
-            android:name="me.iwf.photopicker.PhotoPickerActivity"
-            android:screenOrientation="portrait"/>
+            android:name="me.iwf.photopicker.PhotoPickerActivity"/>
 
         <activity
-            android:name="me.iwf.photopicker.PhotoPagerActivity"
-            android:screenOrientation="portrait"/>
+            android:name="me.iwf.photopicker.PhotoPagerActivity"/>
 
         <activity
-            android:name="com.yalantis.ucrop.UCropActivity"
-            android:screenOrientation="portrait"/>
+            android:name="com.yalantis.ucrop.UCropActivity"/>
         <!-- photo picker end -->
     </application>
 
