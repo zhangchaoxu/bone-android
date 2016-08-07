@@ -43,6 +43,7 @@ dependencies {
     compile deps.recyclerview
     compile deps.cardview
     compile deps.design
+    compile deps.percent
     // multidex
     compile deps.multidex
 
