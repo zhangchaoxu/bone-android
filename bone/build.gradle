@@ -60,6 +60,10 @@ dependencies {
     compile deps.rxpermissions
     compile deps.rxpreferences
 
+    // db
+    compile deps.dbflowcore
+    compile deps.dbflow
+
     // analytics
     compile deps.analytics
 
