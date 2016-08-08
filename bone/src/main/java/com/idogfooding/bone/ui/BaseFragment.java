@@ -56,17 +56,18 @@ public abstract class BaseFragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(getContentView(), container, false);
         unbinder = ButterKnife.bind(this, view);
+        initArgument(getArguments());
         return view;
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initArgument(getArguments());
         afterViewCreated(view, savedInstanceState);
     }
 
-    @Override public void onDestroyView() {
+    @Override
+    public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
     }

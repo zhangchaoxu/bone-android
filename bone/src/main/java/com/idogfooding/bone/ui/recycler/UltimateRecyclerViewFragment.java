@@ -34,8 +34,8 @@ public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter>
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    protected void afterViewCreated(View view, Bundle savedInstanceState) {
+        super.afterViewCreated(view, savedInstanceState);
 
         ultimateRecyclerView = (UltimateRecyclerView) view.findViewById(R.id.ultimate_recycler_view);
         // init urv ui
