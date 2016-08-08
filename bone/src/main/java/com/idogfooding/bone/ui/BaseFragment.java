@@ -1,9 +1,7 @@
 package com.idogfooding.bone.ui;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,7 +11,6 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 
 import com.alibaba.fastjson.JSONException;
-import com.f2prateek.rx.preferences.RxSharedPreferences;
 import com.idogfooding.bone.BaseApplication;
 import com.idogfooding.bone.R;
 import com.idogfooding.bone.network.ApiException;
@@ -65,7 +62,7 @@ public abstract class BaseFragment extends android.support.v4.app.Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initArgument();
+        initArgument(getArguments());
         afterViewCreated(view, savedInstanceState);
     }
 
@@ -74,8 +71,7 @@ public abstract class BaseFragment extends android.support.v4.app.Fragment {
         unbinder.unbind();
     }
 
-    protected void afterViewCreated(View view, Bundle savedInstanceState) {
-    }
+    protected void afterViewCreated(View view, Bundle savedInstanceState) {}
 
     // [+] network
     /**
@@ -140,7 +136,7 @@ public abstract class BaseFragment extends android.support.v4.app.Fragment {
     /**
      * init argument
      */
-    protected void initArgument() {
+    protected void initArgument(Bundle args) {
         // blank
     }
 
