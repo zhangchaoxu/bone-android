@@ -13,6 +13,7 @@ import com.idogfooding.bone.R;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import me.iwf.photopicker.PhotoPicker;
 import me.iwf.photopicker.PhotoPreview;
@@ -25,28 +26,46 @@ import me.iwf.photopicker.PhotoPreview;
 public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHolder> {
 
     public static final String ITEM_MORE = "ITEM_MORE";
-    private ArrayList<String> mPhotoPaths = new ArrayList<>();
+    private List<String> mPhotoPaths = new ArrayList<>();
 
     private Activity mActivity;
     private boolean mShowDeleteButton = true;
     private int mRequestCode = 0;
+    private int mPhotoCount = 4;
+    private int mGridColumnCount = 4;
 
-    public PhotoAdapter(Activity activity, ArrayList<String> photoPaths, boolean showDeleteButton, int requestCode) {
+    public PhotoAdapter(Activity activity, List<String> photoPaths, boolean showDeleteButton, int requestCode) {
         this.mActivity = activity;
         this.mPhotoPaths = photoPaths;
         this.mShowDeleteButton = showDeleteButton;
         this.mRequestCode = requestCode;
     }
 
-    public PhotoAdapter(Activity activity, ArrayList<String> photoPaths, boolean showDeleteButton) {
+    public PhotoAdapter(Activity activity, List<String> photoPaths, boolean showDeleteButton) {
         this.mActivity = activity;
         this.mPhotoPaths = photoPaths;
         this.mShowDeleteButton = showDeleteButton;
     }
 
-    public PhotoAdapter(Activity activity, ArrayList<String> photoPaths) {
+    public PhotoAdapter(Activity activity, List<String> photoPaths) {
         this.mActivity = activity;
         this.mPhotoPaths = photoPaths;
+    }
+
+    public int getPhotoCount() {
+        return mPhotoCount;
+    }
+
+    public void setPhotoCount(int photoCount) {
+        this.mPhotoCount = photoCount;
+    }
+
+    public int getGridColumnCount() {
+        return mGridColumnCount;
+    }
+
+    public void setGridColumnCount(int gridColumnCount) {
+        this.mGridColumnCount = gridColumnCount;
     }
 
     @Override
@@ -65,8 +84,8 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
                 @Override
                 public void onClick(View view) {
                     PhotoPicker.builder()
-                            .setPhotoCount(4)
-                            .setGridColumnCount(4)
+                            .setPhotoCount(mPhotoCount)
+                            .setGridColumnCount(mGridColumnCount)
                             .setSelected(removeMoreItem())
                             .start(mActivity, mRequestCode == 0 ? PhotoPicker.REQUEST_CODE : mRequestCode);
                 }

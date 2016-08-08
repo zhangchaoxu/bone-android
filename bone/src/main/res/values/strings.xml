@@ -50,6 +50,7 @@
     <string name="select">选择</string>
     <string name="preview">预览</string>
     <string name="photo_pick">图片选择</string>
+    <string name="please_input">请输入内容……</string>
 
     <string name="socket_timeout_exception">服务器连接超时,请检查网络后重试</string>
     <string name="api_exception">接口返回异常</string>
