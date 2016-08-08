@@ -31,6 +31,8 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
     private Activity mActivity;
     private boolean mShowDeleteButton = true;
     private int mRequestCode = 0;
+    private int mPhotoCount = 4;
+    private int mGridColumnCount = 4;
 
     public PhotoAdapter(Activity activity, List<String> photoPaths, boolean showDeleteButton, int requestCode) {
         this.mActivity = activity;
@@ -48,6 +50,22 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
     public PhotoAdapter(Activity activity, List<String> photoPaths) {
         this.mActivity = activity;
         this.mPhotoPaths = photoPaths;
+    }
+
+    public int getmPhotoCount() {
+        return mPhotoCount;
+    }
+
+    public void setmPhotoCount(int mPhotoCount) {
+        this.mPhotoCount = mPhotoCount;
+    }
+
+    public int getmGridColumnCount() {
+        return mGridColumnCount;
+    }
+
+    public void setmGridColumnCount(int mGridColumnCount) {
+        this.mGridColumnCount = mGridColumnCount;
     }
 
     @Override
