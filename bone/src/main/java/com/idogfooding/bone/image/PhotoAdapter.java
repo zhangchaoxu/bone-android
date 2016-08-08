@@ -52,20 +52,20 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
         this.mPhotoPaths = photoPaths;
     }
 
-    public int getmPhotoCount() {
+    public int getPhotoCount() {
         return mPhotoCount;
     }
 
-    public void setmPhotoCount(int mPhotoCount) {
-        this.mPhotoCount = mPhotoCount;
+    public void setPhotoCount(int photoCount) {
+        this.mPhotoCount = photoCount;
     }
 
-    public int getmGridColumnCount() {
+    public int getGridColumnCount() {
         return mGridColumnCount;
     }
 
-    public void setmGridColumnCount(int mGridColumnCount) {
-        this.mGridColumnCount = mGridColumnCount;
+    public void setGridColumnCount(int gridColumnCount) {
+        this.mGridColumnCount = gridColumnCount;
     }
 
     @Override
@@ -84,8 +84,8 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
                 @Override
                 public void onClick(View view) {
                     PhotoPicker.builder()
-                            .setPhotoCount(4)
-                            .setGridColumnCount(4)
+                            .setPhotoCount(mPhotoCount)
+                            .setGridColumnCount(mGridColumnCount)
                             .setSelected(removeMoreItem())
                             .start(mActivity, mRequestCode == 0 ? PhotoPicker.REQUEST_CODE : mRequestCode);
                 }
