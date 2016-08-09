@@ -9,6 +9,7 @@ import java.util.UUID;
  * @author Charles
  */
 public class StringUtils {
+    
     /**
      * 将字符串List转化为字符串，以分隔符间隔.
      *
@@ -17,12 +18,15 @@ public class StringUtils {
      * @return 转化后的字符串
      */
     public static String toString(List<String> list, String separator) {
-        StringBuffer stringBuffer = new StringBuffer();
-        for (String str : list) {
-            stringBuffer.append(separator + str);
+        if (null == list || list.isEmpty()) {
+            return null;
+        } else  {
+            StringBuilder sb = new StringBuilder();
+            for (String str : list) {
+                sb.append(separator + str);
+            }
+            return sb.deleteCharAt(0).toString();
         }
-        stringBuffer.deleteCharAt(0);
-        return stringBuffer.toString();
     }
 
     /**
@@ -33,8 +37,8 @@ public class StringUtils {
      * @return 转化后的字符串
      */
     public static String toString(CharSequence[] list, String separator) {
-        if (list.length == 0) {
-            return "";
+        if (list == null || list.length == 0) {
+            return null;
         } else {
             StringBuilder sb = new StringBuilder();
             for (CharSequence str : list) {
