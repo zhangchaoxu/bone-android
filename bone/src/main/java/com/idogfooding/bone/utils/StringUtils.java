@@ -1,7 +1,11 @@
 package com.idogfooding.bone.utils;
 
+import android.text.TextUtils;
+
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 /**
  * StringUtils
@@ -9,7 +13,7 @@ import java.util.UUID;
  * @author Charles
  */
 public class StringUtils {
-    
+
     /**
      * 将字符串List转化为字符串，以分隔符间隔.
      *
@@ -20,7 +24,7 @@ public class StringUtils {
     public static String toString(List<String> list, String separator) {
         if (null == list || list.isEmpty()) {
             return null;
-        } else  {
+        } else {
             StringBuilder sb = new StringBuilder();
             for (String str : list) {
                 sb.append(separator + str);
@@ -59,8 +63,21 @@ public class StringUtils {
         if (start < 0 || end < 0 || start >= end) {
             return null;
         } else {
-            return str.substring(start +  1, end);
+            return str.substring(start + 1, end);
         }
+    }
+
+    /**
+     * is car number
+     * 只能判断普通的车牌号，无法判断警 教练等特殊车牌
+     */
+    public static boolean isCarNumber(String str) {
+        if (TextUtils.isEmpty(str) || str.length() != 7)
+            return false;
+
+        String[] provence = new String[]{"京", "津", "冀", "晋", "辽", "吉", "黑", "沪", "苏", "浙", "皖", "闽", "赣", "鲁", "豫", "鄂", "湘", "粤", "桂", "琼", "渝", "川", "黔", "滇", "藏", "陕", "甘", "青", "宁", "新", "港", "澳", "蒙"};
+        String reg = "[\u4e00-\u9fa5]{1}[A-Z]{1}[A-Z_0-9]{5}";
+        return Arrays.asList(provence).contains(str.substring(0, 1)) && Pattern.compile(reg).matcher(str).matches();
     }
 
 }
