@@ -33,12 +33,15 @@ public class StringUtils {
      * @return 转化后的字符串
      */
     public static String toString(CharSequence[] list, String separator) {
-        StringBuffer stringBuffer = new StringBuffer();
-        for (CharSequence str : list) {
-            stringBuffer.append(separator + str);
+        if (list.length == 0) {
+            return "";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            for (CharSequence str : list) {
+                sb.append(separator + str);
+            }
+            return sb.deleteCharAt(0).toString();
         }
-        stringBuffer.deleteCharAt(0);
-        return stringBuffer.toString();
     }
 
     public static String getUUID() {
