@@ -187,13 +187,11 @@ public abstract class BaseActivity extends AutoLayoutActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             View decorView = getWindow().getDecorView();
             if (decorView != null) {
-                int vis = decorView.getSystemUiVisibility();
                 if (bDark) {
-                    vis |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                    decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
                 } else {
-                    vis &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                    decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
                 }
-                decorView.setSystemUiVisibility(vis);
             }
         }
     }
