@@ -69,10 +69,10 @@ public class StringUtils {
 
     /**
      * is car number
-     * 只能判断普通的车牌号，无法判断警 教练等特殊车牌
+     * 只能判断普通的车牌号，无法判断 警 教练等特殊车牌
      */
     public static boolean isCarNumber(String str) {
-        if (TextUtils.isEmpty(str) || str.length() != 7)
+        if (TextUtils.isEmpty(str))
             return false;
 
         String[] provence = new String[]{"京", "津", "冀", "晋", "辽", "吉", "黑", "沪", "苏", "浙", "皖", "闽", "赣", "鲁", "豫", "鄂", "湘", "粤", "桂", "琼", "渝", "川", "黔", "滇", "藏", "陕", "甘", "青", "宁", "新", "港", "澳", "蒙"};
