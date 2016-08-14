@@ -52,7 +52,7 @@ ext.deps = [
         // auto layout https://github.com/hongyangAndroid/AndroidAutoLayout
         autolayout              : 'com.zhy:autolayout:1.4.5',
         // RecyclerView https://github.com/cymcsg/UltimateRecyclerView
-        ultimaterecyclerview    : 'com.hkm.ui:ultimaterecyclerview:0.5.8',
+        ultimaterecyclerview    : 'com.marshalchen.ultimaterecyclerview:library:0.7.0',
         // edit text https://github.com/zhangchaoxu/MaterialEditText/
         MaterialEditText        : 'com.github.zhangchaoxu:MaterialEditText:2.1.5',
         // compile 'com.rengwuxian.materialedittext:library:2.1.4'
