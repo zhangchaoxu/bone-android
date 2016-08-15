@@ -52,6 +52,26 @@ public class StringUtils {
         }
     }
 
+    /**
+     * 获得分隔后的第一个字符串
+     *
+     * @param list      需要处理的字符串.
+     * @param separator 分隔符.
+     * @return 转化后的字符串
+     */
+    public static String getFirstString(String list, String separator) {
+        if (TextUtils.isEmpty(list)) {
+            return null;
+        } else {
+            String[] picList = list.split(separator, -1);
+            if (picList.length > 0) {
+                return picList[0];
+            } else {
+                return null;
+            }
+        }
+    }
+
     public static String getUUID() {
         String uuid = UUID.randomUUID().toString();
         return uuid.substring(0, 8) + uuid.substring(9, 13) + uuid.substring(14, 18) + uuid.substring(19, 23) + uuid.substring(24);
