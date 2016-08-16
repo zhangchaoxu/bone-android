@@ -17,7 +17,7 @@ public abstract class NoPageFragment<T, A extends easyRegularAdapter> extends Ul
     @Override
     protected void afterViewCreated(View view, Bundle savedInstanceState) {
         super.afterViewCreated(view, savedInstanceState);
-        loadList(true);
+        loadList(false);
     }
 
     protected void loadList(final boolean refresh) {
