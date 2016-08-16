@@ -65,6 +65,8 @@ public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter>
                     more();
                 }
             });
+        } else {
+            disableLoadMore();
         }
 
         // init adapter and data
@@ -101,7 +103,6 @@ public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter>
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB) {
             ultimateRecyclerView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
-        //ultimateRecyclerView.addItemDecoration(new HorizontalDividerItemDecoration.Builder(this).paint(paint).build());
         return new HorizontalDividerItemDecoration.Builder(getActivity()).paint(paint).build();
     }
 
