@@ -21,4 +21,18 @@ public class NumberUtils {
         return parseToDouble(str, 0d);
     }
 
+    public static int parseToInt(String str, int defaultVal) {
+        int doubleVal;
+        try {
+            doubleVal = Integer.valueOf(str);
+        } catch (Exception e) {
+            doubleVal = defaultVal;
+        }
+        return doubleVal;
+    }
+
+    public static int parseToInt(String str) {
+        return parseToInt(str, 0);
+    }
+
 }
