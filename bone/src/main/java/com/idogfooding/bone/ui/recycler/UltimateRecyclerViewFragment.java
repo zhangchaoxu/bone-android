@@ -43,6 +43,7 @@ public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter>
 
         ultimateRecyclerView.setHasFixedSize(getHasFixedSize());
         ultimateRecyclerView.setLayoutManager(getLayoutManager());
+        ultimateRecyclerView.setParallaxHeader(R.layout.empty_view);
         RecyclerView.ItemDecoration itemDecoration =  getItemDecoration();
         if (null != itemDecoration) {
             ultimateRecyclerView.addItemDecoration(itemDecoration);
