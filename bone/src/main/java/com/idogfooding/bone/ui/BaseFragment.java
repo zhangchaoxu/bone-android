@@ -2,6 +2,7 @@ package com.idogfooding.bone.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -80,6 +81,7 @@ public abstract class BaseFragment extends android.support.v4.app.Fragment {
      * @param throwable
      */
     protected void handleNetworkError(Throwable throwable) {
+        Log.e(TAG, throwable.getMessage());
         int errorMsg = R.string.unknown_error;
         if (throwable instanceof ApiException) {
             handleApiError((ApiException)throwable);
