@@ -34,7 +34,7 @@ ext.deps = [
         logginginterceptor      : 'com.squareup.okhttp3:logging-interceptor:3.4.1',
 
         // rxjava https://github.com/ReactiveX/RxJava
-        rxjava                  : 'io.reactivex:rxjava:1.1.8',
+        rxjava                  : 'io.reactivex:rxjava:1.1.9',
         // rxandroid https://github.com/ReactiveX/rxandroid
         rxandroid               : 'io.reactivex:rxandroid:1.2.1',
         // rxpermissions https://github.com/tbruyelle/RxPermissions
@@ -59,11 +59,11 @@ ext.deps = [
         // material dialogs https://github.com/afollestad/material-dialogs
         materialdialogscore     : 'com.afollestad.material-dialogs:core:0.8.6.2',
         // PhotoPicker https://github.com/donglua/PhotoPicker
-        PhotoPicker             : 'com.github.donglua:PhotoPicker:0.8.9@aar',
+        PhotoPicker             : 'me.iwf.photopicker:PhotoPicker:0.8.9@aar',
         // PhotoCrop https://github.com/Yalantis/uCrop
         ucrop                   : 'com.yalantis:ucrop:2.1.2',
         // Photo Compress compile https://github.com/Curzibn/Luban
-        luban                   : 'top.zibin:Luban:1.0.5',
+        luban                   : 'top.zibin:Luban:1.0.8',
         // circleimageview https://github.com/hdodenhof/CircleImageView
         circleimageview         : 'de.hdodenhof:circleimageview:2.1.0',
         // TabLayout https://github.com/H07000223/FlycoTabLayout
@@ -74,7 +74,7 @@ ext.deps = [
         // scanner https://github.com/dm77/barcodescanner
         zxing                   : 'me.dm7.barcodescanner:zxing:1.9',
         // banner https://github.com/youth5201314/banner
-        banner                  : 'com.youth.banner:banner:1.2.0',
+        banner                  : 'com.youth.banner:banner:1.2.5',
 
         // db https://github.com/Raizlabs/DBFlow
         dbflowprocessor         : 'com.github.Raizlabs.DBFlow:dbflow-processor:3.1.1',
