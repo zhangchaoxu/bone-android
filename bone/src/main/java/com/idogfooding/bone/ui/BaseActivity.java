@@ -220,6 +220,8 @@ public abstract class BaseActivity extends AutoLayoutActivity {
             errorMsg = R.string.socket_timeout_exception;
         }
         BaseApplication.showToast(errorMsg);
+        Log.e(TAG, "handleNetworkError: " +  throwable.getMessage());
+        throwable.printStackTrace();
     }
 
     /**

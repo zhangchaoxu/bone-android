@@ -59,7 +59,7 @@ ext.deps = [
         // material dialogs https://github.com/afollestad/material-dialogs
         materialdialogscore     : 'com.afollestad.material-dialogs:core:0.8.6.2',
         // PhotoPicker https://github.com/donglua/PhotoPicker
-        PhotoPicker             : 'com.github.donglua:PhotoPicker:0.8.5@aar',
+        PhotoPicker             : 'com.github.donglua:PhotoPicker:0.8.9@aar',
         // PhotoCrop https://github.com/Yalantis/uCrop
         ucrop                   : 'com.yalantis:ucrop:2.1.2',
         // Photo Compress compile https://github.com/Curzibn/Luban

@@ -81,7 +81,6 @@ public abstract class BaseFragment extends android.support.v4.app.Fragment {
      * @param throwable
      */
     protected void handleNetworkError(Throwable throwable) {
-        Log.e(TAG, throwable.getMessage());
         int errorMsg = R.string.unknown_error;
         if (throwable instanceof ApiException) {
             handleApiError((ApiException)throwable);
@@ -96,6 +95,8 @@ public abstract class BaseFragment extends android.support.v4.app.Fragment {
             errorMsg = R.string.socket_timeout_exception;
         }
         BaseApplication.showToast(errorMsg);
+        Log.e(TAG, throwable.getMessage());
+        throwable.printStackTrace();
     }
 
     /**
