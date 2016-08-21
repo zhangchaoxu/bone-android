@@ -23,7 +23,7 @@ import com.marshalchen.ultimaterecyclerview.ui.emptyview.emptyViewOnShownListene
  *
  * @author Charles
  */
-public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter> extends BaseFragment implements emptyViewOnShownListener {
+public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter> extends BaseFragment implements emptyViewOnShownListener, UltimateRecyclerView.OnParallaxScroll {
 
     protected A adapter;
     protected UltimateRecyclerView ultimateRecyclerView;
@@ -43,7 +43,11 @@ public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter>
 
         ultimateRecyclerView.setHasFixedSize(getHasFixedSize());
         ultimateRecyclerView.setLayoutManager(getLayoutManager());
-        //ultimateRecyclerView.setParallaxHeader(R.layout.empty_view);
+        int headerView = getHeaderView();
+        if (0 != headerView) {
+            ultimateRecyclerView.setParallaxHeader(headerView);
+            ultimateRecyclerView.setOnParallaxScroll(this);
+        }
         RecyclerView.ItemDecoration itemDecoration =  getItemDecoration();
         if (null != itemDecoration) {
             ultimateRecyclerView.addItemDecoration(itemDecoration);
@@ -95,6 +99,15 @@ public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter>
 
     protected boolean getIsLoadMore() {
         return true;
+    }
+
+    protected int getHeaderView() {
+        return 0;
+    }
+
+    @Override
+    public void onParallaxScroll(float percentage, float offset, View parallax) {
+
     }
 
     protected RecyclerView.ItemDecoration getItemDecoration() {
