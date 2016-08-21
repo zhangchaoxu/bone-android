@@ -74,7 +74,7 @@ ext.deps = [
         // scanner https://github.com/dm77/barcodescanner
         zxing                   : 'me.dm7.barcodescanner:zxing:1.9',
         // banner https://github.com/youth5201314/banner
-        banner                  : 'com.youth.banner:banner:1.2.5',
+        banner                  : 'com.youth.banner:banner:1.2.6',
 
         // db https://github.com/Raizlabs/DBFlow
         dbflowprocessor         : 'com.github.Raizlabs.DBFlow:dbflow-processor:3.1.1',
