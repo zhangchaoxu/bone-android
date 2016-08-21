@@ -33,6 +33,8 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
     private int mRequestCode = 0;
     private int mPhotoCount = 4;
     private int mGridColumnCount = 4;
+    private int placeholder = R.drawable.__picker_ic_photo_black_48dp;
+    private int errorholder = R.drawable.__picker_ic_broken_image_black_48dp;
 
     public PhotoAdapter(Activity activity, List<String> photoPaths, boolean showDeleteButton, int requestCode) {
         this.mActivity = activity;
@@ -68,6 +70,14 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
         this.mGridColumnCount = gridColumnCount;
     }
 
+    public void setPlaceholder(int placeholder) {
+        this.placeholder = placeholder;
+    }
+
+    public void setErrorholder(int errorholder) {
+        this.errorholder = errorholder;
+    }
+
     @Override
     public PhotoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(mActivity).inflate(me.iwf.photopicker.R.layout.__picker_item_photo, parent, false);
@@ -94,14 +104,14 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
             String photoPath = mPhotoPaths.get(position);
             if (photoPath.startsWith("http")) {
                 Glide.with(mActivity).load(photoPath).centerCrop().thumbnail(0.1f)
-                        .placeholder(me.iwf.photopicker.R.drawable.__picker_ic_photo_black_48dp)
-                        .error(me.iwf.photopicker.R.drawable.__picker_ic_broken_image_black_48dp)
+                        .placeholder(placeholder)
+                        .error(errorholder)
                         .into(holder.ivPhoto);
             } else {
                 Uri uri = Uri.fromFile(new File(mPhotoPaths.get(position)));
                 Glide.with(mActivity).load(uri).centerCrop().thumbnail(0.1f)
-                        .placeholder(me.iwf.photopicker.R.drawable.__picker_ic_photo_black_48dp)
-                        .error(me.iwf.photopicker.R.drawable.__picker_ic_broken_image_black_48dp)
+                        .placeholder(placeholder)
+                        .error(errorholder)
                         .into(holder.ivPhoto);
             }
 
