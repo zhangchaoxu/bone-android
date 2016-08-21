@@ -2,7 +2,11 @@ package com.idogfooding.bone.ui.recycler;
 
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.idogfooding.bone.R;
 import com.marshalchen.ultimaterecyclerview.quickAdapter.easyRegularAdapter;
 
 import java.util.Iterator;
@@ -47,6 +51,10 @@ public abstract class BaseRegularAdapter<T, B extends BaseViewHolder> extends ea
             String o = e.fillInStackTrace().getCause().getMessage().toString();
             Log.d("fillInStackTrace", o + " : ");
         }
+    }
+
+    protected void loadImg(ImageView image, String pic) {
+        Glide.with(mFragment).load(pic).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.mipmap.ic_errorholder).placeholder(R.mipmap.ic_placeholder).into(image);
     }
 
 }
