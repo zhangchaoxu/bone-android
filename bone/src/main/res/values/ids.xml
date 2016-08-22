@@ -42,4 +42,6 @@
 
     <item type="id" name="item_click_support">false</item>
 
+    <item type="id" name="ratingbar">false</item>
+
 </resources>
