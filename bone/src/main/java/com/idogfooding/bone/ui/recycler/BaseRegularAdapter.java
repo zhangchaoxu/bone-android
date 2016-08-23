@@ -3,6 +3,7 @@ package com.idogfooding.bone.ui.recycler;
 import android.support.annotation.DrawableRes;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -59,6 +60,7 @@ public abstract class BaseRegularAdapter<T, B extends BaseViewHolder> extends ea
     }
 
     protected void loadImg(ImageView image, String pic, @DrawableRes int placeholder, @DrawableRes  int errorholder) {
+        image.setVisibility(View.VISIBLE);
         Glide.with(mFragment).load(pic).diskCacheStrategy(DiskCacheStrategy.ALL).error(errorholder).placeholder(placeholder).into(image);
     }
 
