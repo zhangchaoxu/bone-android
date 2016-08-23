@@ -237,8 +237,8 @@ public abstract class BaseActivity extends AutoLayoutActivity {
             startActivity(intent);
             AppManager.getAppManager().finishAllActivityExcept("LoginActivity");
         } else {
-            Log.e(TAG, "接口返回异常,code:" + apiException.getCode() + ",msg=" + apiException.getMessage());
-            BaseApplication.showToast("接口返回异常,code:" + apiException.getCode() + ",msg=" + apiException.getMessage());
+            Log.e(TAG, "ApiException,code:" + apiException.getCode() + ",msg=" + apiException.getMessage());
+            BaseApplication.showToast(apiException.getCode() + ":" + apiException.getMessage());
         }
     }
     // [-] network

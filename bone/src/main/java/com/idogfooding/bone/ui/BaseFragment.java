@@ -111,7 +111,8 @@ public abstract class BaseFragment extends android.support.v4.app.Fragment {
             startActivity(intent);
             AppManager.getAppManager().finishAllActivityExcept("LoginActivity");
         } else {
-            BaseApplication.showToast(apiException.getMessage());
+            Log.e(TAG, "ApiException,code:" + apiException.getCode() + ",msg=" + apiException.getMessage());
+            BaseApplication.showToast(apiException.getCode() + ":" + apiException.getMessage());
         }
     }
     // [-] network
