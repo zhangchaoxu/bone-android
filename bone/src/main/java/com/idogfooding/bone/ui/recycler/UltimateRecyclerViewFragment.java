@@ -120,8 +120,13 @@ public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter>
         return new HorizontalDividerItemDecoration.Builder(getActivity()).paint(paint).build();
     }
 
+    RecyclerView.LayoutManager layoutManager;
+
     protected RecyclerView.LayoutManager getLayoutManager() {
-        return new ScrollSmoothLineaerLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false, 300);
+        if (null == layoutManager) {
+            layoutManager = new ScrollSmoothLineaerLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false, 300);
+        }
+        return layoutManager;
     }
 
     protected boolean getHasFixedSize() {
