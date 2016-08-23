@@ -1,5 +1,6 @@
 package com.idogfooding.bone.ui.recycler;
 
+import android.support.annotation.DrawableRes;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.widget.ImageView;
@@ -54,7 +55,11 @@ public abstract class BaseRegularAdapter<T, B extends BaseViewHolder> extends ea
     }
 
     protected void loadImg(ImageView image, String pic) {
-        Glide.with(mFragment).load(pic).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.mipmap.ic_errorholder).placeholder(R.mipmap.ic_placeholder).into(image);
+        loadImg(image, pic, R.mipmap.ic_placeholder, R.mipmap.ic_errorholder);
+    }
+
+    protected void loadImg(ImageView image, String pic, @DrawableRes int placeholder, @DrawableRes  int errorholder) {
+        Glide.with(mFragment).load(pic).diskCacheStrategy(DiskCacheStrategy.ALL).error(errorholder).placeholder(placeholder).into(image);
     }
 
 }

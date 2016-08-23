@@ -38,6 +38,7 @@ public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter>
         super.afterViewCreated(view, savedInstanceState);
 
         ultimateRecyclerView = (UltimateRecyclerView) view.findViewById(R.id.ultimate_recycler_view);
+        createAdapter();
         // init urv ui
         ultimateRecyclerView.setEmptyView(R.layout.empty_view, UltimateRecyclerView.EMPTY_CLEAR_ALL, this);
 
@@ -75,7 +76,6 @@ public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter>
         }
 
         // init adapter and data
-        createAdapter();
         ultimateRecyclerView.setAdapter(adapter);
     }
 
