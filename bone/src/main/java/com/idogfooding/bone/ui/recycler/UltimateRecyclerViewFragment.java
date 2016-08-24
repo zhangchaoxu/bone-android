@@ -64,7 +64,7 @@ public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter>
             });
         }
         if (getIsLoadMore()) {
-            ultimateRecyclerView.setLoadMoreView(R.layout.load_more);
+            ultimateRecyclerView.setLoadMoreView(getLoadMoreView());
             ultimateRecyclerView.setOnLoadMoreListener(new UltimateRecyclerView.OnLoadMoreListener() {
                 @Override
                 public void loadMore(int itemsCount, final int maxLastVisiblePosition) {
@@ -99,6 +99,10 @@ public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter>
 
     protected boolean getIsLoadMore() {
         return true;
+    }
+
+    protected int getLoadMoreView() {
+        return R.layout.load_more;
     }
 
     protected int getHeaderView() {
