@@ -25,7 +25,7 @@ public abstract class NoPageFragment<T, A extends easyRegularAdapter> extends Ul
     }
 
     @Override
-    protected void refresh() {
+    public void refresh() {
         loadList(true);
     }
 

@@ -2,7 +2,6 @@ package com.idogfooding.bone.ui.recycler;
 
 import android.content.Intent;
 import android.support.annotation.DrawableRes;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -31,13 +30,13 @@ public abstract class BaseRegularAdapter<T, B extends BaseViewHolder> extends ea
 
     protected final String TAG = getClass().getSimpleName();
 
-    protected Fragment mFragment;
+    protected UltimateRecyclerViewFragment mFragment;
 
     public BaseRegularAdapter(List<T> list) {
         super(list);
     }
 
-    public BaseRegularAdapter(Fragment fragment, List<T> list) {
+    public BaseRegularAdapter(UltimateRecyclerViewFragment fragment, List<T> list) {
         super(list);
         mFragment = fragment;
     }

@@ -87,7 +87,7 @@ public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter>
         ultimateRecyclerView.disableLoadmore();
     }
 
-    protected void refresh() {
+    public void refresh() {
 
     }
 
