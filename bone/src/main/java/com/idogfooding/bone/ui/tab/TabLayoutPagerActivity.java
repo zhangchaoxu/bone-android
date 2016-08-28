@@ -83,11 +83,15 @@ public abstract class TabLayoutPagerActivity<V extends TabFragmentPagerAdapter> 
         return R.layout.tab_layout_pager;
     }
 
-    private void updateCurrentItem(final int newPosition) {
+    protected void updateCurrentItem(final int newPosition) {
         if (newPosition > -1 && newPosition < adapter.getCount()) {
             pager.setItem(newPosition);
             setCurrentItem(newPosition);
         }
+    }
+
+    protected void onTabClick(final int newPosition) {
+
     }
 
     private void createPager() {
@@ -140,11 +144,14 @@ public abstract class TabLayoutPagerActivity<V extends TabFragmentPagerAdapter> 
         tabLayout.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelect(int position) {
+                onTabClick(position);
                 updateCurrentItem(position);
             }
 
             @Override
-            public void onTabReselect(int position) {}
+            public void onTabReselect(int position) {
+                onTabClick(position);
+            }
         });
 
         configureTabPager();

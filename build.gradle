@@ -16,12 +16,12 @@ ext {
 
 ext.deps = [
         // support
-        supportv4               : 'com.android.support:support-v4:24.1.1',
-        appcompat               : 'com.android.support:appcompat-v7:24.1.1',
-        recyclerview            : 'com.android.support:recyclerview-v7:24.1.1',
-        cardview                : 'com.android.support:cardview-v7:24.1.1',
-        design                  : 'com.android.support:design:24.1.1',
-        percent                 : 'com.android.support:percent:24.1.1',
+        supportv4               : 'com.android.support:support-v4:24.2.0',
+        appcompat               : 'com.android.support:appcompat-v7:24.2.0',
+        recyclerview            : 'com.android.support:recyclerview-v7:24.2.0',
+        cardview                : 'com.android.support:cardview-v7:24.2.0',
+        design                  : 'com.android.support:design:24.2.0',
+        percent                 : 'com.android.support:percent:24.2.0',
         // multidex support {https://developer.android.com/tools/building/multidex.html}
         multidex                : 'com.android.support:multidex:1.0.1',
 
@@ -47,8 +47,8 @@ ext.deps = [
 
         // view
         // ViewBinding https://github.com/JakeWharton/butterknife
-        butterknife             : 'com.jakewharton:butterknife:8.2.1',
-        butterknifecompiler     : 'com.jakewharton:butterknife-compiler:8.2.1',
+        butterknife             : 'com.jakewharton:butterknife:8.4.0',
+        butterknifecompiler     : 'com.jakewharton:butterknife-compiler:8.4.0',
         // auto layout https://github.com/hongyangAndroid/AndroidAutoLayout
         autolayout              : 'com.zhy:autolayout:1.4.5',
         // RecyclerView https://github.com/cymcsg/UltimateRecyclerView
@@ -74,7 +74,7 @@ ext.deps = [
         // scanner https://github.com/dm77/barcodescanner
         zxing                   : 'me.dm7.barcodescanner:zxing:1.9',
         // banner https://github.com/youth5201314/banner
-        banner                  : 'com.youth.banner:banner:1.2.6',
+        banner                  : 'com.youth.banner:banner:1.2.7',
 
         // db https://github.com/Raizlabs/DBFlow
         dbflowprocessor         : 'com.github.Raizlabs.DBFlow:dbflow-processor:3.1.1',
@@ -90,9 +90,9 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.2'
+        classpath 'com.android.tools.build:gradle:2.1.3'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-        classpath 'com.jakewharton:butterknife-gradle-plugin:8.2.1'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
