@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -44,12 +45,13 @@ public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter>
 
         ultimateRecyclerView.setHasFixedSize(getHasFixedSize());
         ultimateRecyclerView.setLayoutManager(getLayoutManager());
-        int headerView = getHeaderView();
-        if (0 != headerView) {
-            ultimateRecyclerView.setParallaxHeader(headerView);
+        if (0 != getParallaxHeaderView()) {
+            ultimateRecyclerView.setParallaxHeader(getParallaxHeaderView());
             ultimateRecyclerView.setOnParallaxScroll(this);
+        } else if (0 != getNormalHeaderView()) {
+            ultimateRecyclerView.setNormalHeader(LayoutInflater.from(getContext()).inflate(getNormalHeaderView(), null));
         }
-        RecyclerView.ItemDecoration itemDecoration =  getItemDecoration();
+        RecyclerView.ItemDecoration itemDecoration = getItemDecoration();
         if (null != itemDecoration) {
             ultimateRecyclerView.addItemDecoration(itemDecoration);
         }
@@ -105,7 +107,11 @@ public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter>
         return R.layout.load_more;
     }
 
-    protected int getHeaderView() {
+    protected int getParallaxHeaderView() {
+        return 0;
+    }
+
+    protected int getNormalHeaderView() {
         return 0;
     }
 
@@ -153,7 +159,7 @@ public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter>
                 new ItemTouchListenerAdapter.RecyclerViewOnItemClickListener() {
                     @Override
                     public void onItemClick(RecyclerView parent, View clickedView, int position) {
-                        onListItemClick(parent,  clickedView, position);
+                        onListItemClick(parent, clickedView, position);
                     }
 
                     @Override
