@@ -70,7 +70,7 @@ public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter>
             ultimateRecyclerView.setOnLoadMoreListener(new UltimateRecyclerView.OnLoadMoreListener() {
                 @Override
                 public void loadMore(int itemsCount, final int maxLastVisiblePosition) {
-                    more();
+                    more(itemsCount, maxLastVisiblePosition);
                 }
             });
         } else {
@@ -87,11 +87,15 @@ public abstract class UltimateRecyclerViewFragment<A extends easyRegularAdapter>
         ultimateRecyclerView.disableLoadmore();
     }
 
+    protected void enableLoadMore() {
+        ultimateRecyclerView.reenableLoadmore();
+    }
+
     public void refresh() {
 
     }
 
-    protected void more() {
+    protected void more(int itemsCount, int maxLastVisiblePosition) {
 
     }
 
