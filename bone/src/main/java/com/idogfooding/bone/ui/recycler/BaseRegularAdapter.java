@@ -41,6 +41,37 @@ public abstract class BaseRegularAdapter<T, B extends BaseViewHolder> extends ea
         mFragment = fragment;
     }
 
+    /*@Override
+    protected void notifyAfterRemoveAllData(int data_size_before_remove, int display_size_before_remove) {
+        try {
+
+            final int n_start = hasHeaderView() ? 1 : 0;
+
+            final int n_end = hasHeaderView() ? display_size_before_remove - 1 : display_size_before_remove;
+
+            if (detectDispatchLoadMoreDisplay(data_size_before_remove, display_size_before_remove))
+                return;
+
+            if (data_size_before_remove == 0) return;
+
+            if (mEmptyViewPolicy == UltimateRecyclerView.EMPTY_KEEP_HEADER_AND_LOARMORE) {
+                notifyItemRangeRemoved(n_start, n_end);
+            } else if (mEmptyViewPolicy == UltimateRecyclerView.EMPTY_KEEP_HEADER) {
+                notifyItemRangeRemoved(n_start, n_end);
+                removeDispatchLoadMoreView();
+            } else if (mEmptyViewPolicy == UltimateRecyclerView.EMPTY_CLEAR_ALL) {
+                notifyItemRangeRemoved(0, display_size_before_remove);
+                removeDispatchLoadMoreView();
+            } else {
+                notifyItemRangeRemoved(0, display_size_before_remove);
+            }
+
+        } catch (Exception e) {
+            String o = e.fillInStackTrace().getCause().getMessage().toString();
+            Log.d("fillInStackTrace", o + " : ");
+        }
+    }*/
+
     public void replace(List<T> insert_data) {
         try {
             source.clear();
