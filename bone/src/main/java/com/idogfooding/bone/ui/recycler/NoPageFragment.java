@@ -8,6 +8,7 @@ import com.marshalchen.ultimaterecyclerview.quickAdapter.easyRegularAdapter;
 import java.util.List;
 
 /**
+ * @deprecated
  * NoPageFragment
  *
  * @author Charles
