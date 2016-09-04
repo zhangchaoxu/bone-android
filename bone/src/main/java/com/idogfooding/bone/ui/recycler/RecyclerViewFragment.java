@@ -193,7 +193,8 @@ public abstract class RecyclerViewFragment<A extends easyRegularAdapter> extends
     }
 
     protected void setEmptyMsgAndIcon(TextView msg, ImageView icon) {
-
+        msg.setText("没有内容哦!");
+        icon.setImageResource(R.mipmap.ic_common_empty);
     }
 
     // on click
@@ -217,7 +218,7 @@ public abstract class RecyclerViewFragment<A extends easyRegularAdapter> extends
 
     }
 
-    protected void onListItemLongClick(RecyclerView parent, View clickedView, int positio) {
+    protected void onListItemLongClick(RecyclerView parent, View clickedView, int position) {
 
     }
 }

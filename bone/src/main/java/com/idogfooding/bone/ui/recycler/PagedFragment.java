@@ -1,6 +1,7 @@
 package com.idogfooding.bone.ui.recycler;
 
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.idogfooding.bone.network.PagedResult;
@@ -90,5 +91,19 @@ public abstract class PagedFragment<T, A extends BaseRegularAdapter> extends Rec
         fields.put("pageNum", pageNumber);
         return fields;
     }
+
+    @Override
+    protected void onListItemClick(RecyclerView parent, View clickedView, int position) {
+        onListItemClick(parent, clickedView, position, (T)clickedView.getTag());
+    }
+
+    protected void onListItemClick(RecyclerView parent, View clickedView, int position, T data) {}
+
+    @Override
+    protected void onListItemLongClick(RecyclerView parent, View clickedView, int position) {
+        onListItemLongClick(parent, clickedView, position, (T) clickedView.getTag());
+    }
+
+    protected void onListItemLongClick(RecyclerView parent, View clickedView, int position, T data) {}
 
 }
