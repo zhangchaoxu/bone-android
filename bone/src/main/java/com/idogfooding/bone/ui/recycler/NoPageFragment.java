@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Charles
  */
-public abstract class NoPageFragment<T, A extends easyRegularAdapter> extends UltimateRecyclerViewFragment<A> {
+public abstract class NoPageFragment<T, A extends easyRegularAdapter> extends RecyclerViewFragment<A> {
 
     @Override
     protected void afterViewCreated(View view, Bundle savedInstanceState) {
@@ -25,12 +25,12 @@ public abstract class NoPageFragment<T, A extends easyRegularAdapter> extends Ul
     }
 
     @Override
-    public void refresh() {
+    public void onFireRefresh() {
         loadList(true);
     }
 
     @Override
-    protected boolean getIsLoadMore() {
+    protected boolean isLoadMore() {
         return false;
     }
 
