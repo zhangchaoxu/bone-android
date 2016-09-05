@@ -100,11 +100,15 @@ public abstract class RecyclerViewFragment<A extends easyRegularAdapter> extends
     protected abstract void createAdapter();
 
     protected void disableLoadMore() {
-        ultimateRecyclerView.disableLoadmore();
+        if (null != ultimateRecyclerView) {
+            ultimateRecyclerView.disableLoadmore();
+        }
     }
 
     protected void enableLoadMore() {
-        ultimateRecyclerView.reenableLoadmore();
+        if (null != ultimateRecyclerView) {
+            ultimateRecyclerView.reenableLoadmore();
+        }
     }
 
     public void onFireRefresh() {
