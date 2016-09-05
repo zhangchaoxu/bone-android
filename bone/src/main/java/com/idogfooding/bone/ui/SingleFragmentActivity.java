@@ -41,6 +41,7 @@ public abstract class SingleFragmentActivity extends BaseActivity {
 
     /**
      * get the content fragment
+     *
      * @return the content single fragment
      */
     protected abstract Fragment getContentFragment();
@@ -60,10 +61,10 @@ public abstract class SingleFragmentActivity extends BaseActivity {
     // [+] option menu
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
-        if (mFragment != null)
+        if (mFragment != null && mFragment.hasOptionsMenu())
             return mFragment.onOptionsItemSelected(item);
-
-        return super.onOptionsItemSelected(item);
+        else
+            return super.onOptionsItemSelected(item);
     }
 
     @Override
