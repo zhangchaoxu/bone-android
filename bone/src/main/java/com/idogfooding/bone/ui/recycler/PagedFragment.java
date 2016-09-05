@@ -39,7 +39,6 @@ public abstract class PagedFragment<T, A extends BaseRegularAdapter> extends Rec
     public void onFireRefresh() {
         pageNumber = 1;
         disableLoadMore();
-        //ultimateRecyclerView.reenableLoadmore();
         loadList(true);
     }
 
