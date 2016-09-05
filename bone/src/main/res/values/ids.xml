@@ -44,4 +44,6 @@
 
     <item type="id" name="ratingbar">false</item>
 
+    <item type="id" name="glide_tag">false</item>
+
 </resources>

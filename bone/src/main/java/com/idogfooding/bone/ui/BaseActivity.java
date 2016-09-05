@@ -359,7 +359,7 @@ public abstract class BaseActivity extends AutoLayoutActivity {
      * @return long
      */
     protected long getLongExtra(final String name) {
-        return getIntent().getLongExtra(name, -1l);
+        return getIntent().getLongExtra(name, -1L);
     }
 
     /**

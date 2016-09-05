@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.bumptech.glide.request.target.ViewTarget;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -35,6 +36,10 @@ public class BaseApplication extends Application {
         super.onCreate();
         _context = getApplicationContext();
         _resource = _context.getResources();
+        // fix glide issue "You must not call setTag() on a view Glide is targeting"
+        // https://github.com/bumptech/glide/issues/370
+        // http://stackoverflow.com/questions/34833627/error-you-must-not-call-settag-on-a-view-glide-is-targeting-when-use-glide/35096552
+        ViewTarget.setTagId(R.id.glide_tag);
     }
 
     @Override
