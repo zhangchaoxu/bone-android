@@ -60,10 +60,15 @@ public abstract class SingleFragmentActivity extends BaseActivity {
 
     // [+] option menu
     @Override
-    public boolean onOptionsItemSelected(final MenuItem item) {
-        if (mFragment != null && mFragment.hasOptionsMenu())
-            return mFragment.onOptionsItemSelected(item);
-        else
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (mFragment != null) {
+            boolean fragmentSelected = mFragment.onOptionsItemSelected(item);
+            if (!fragmentSelected) {
+                return super.onOptionsItemSelected(item);
+            } else {
+                return fragmentSelected;
+            }
+        } else
             return super.onOptionsItemSelected(item);
     }
 
