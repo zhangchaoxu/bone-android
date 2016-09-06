@@ -67,6 +67,7 @@ public abstract class PagedFragment<T, A extends BaseRegularAdapter> extends Rec
         } else {
             if (refresh) {
                 adapter.replace(result.getList());
+                scrollToPosition(0);
             } else {
                 adapter.insert(result.getList());
             }

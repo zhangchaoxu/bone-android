@@ -33,6 +33,7 @@ public abstract class RecyclerViewFragment<A extends easyRegularAdapter> extends
 
     protected A adapter;
     protected UltimateRecyclerView ultimateRecyclerView;
+    protected RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected int getContentView() {
@@ -53,7 +54,8 @@ public abstract class RecyclerViewFragment<A extends easyRegularAdapter> extends
         // fixed size
         ultimateRecyclerView.setHasFixedSize(getHasFixedSize());
         // layout manager
-        ultimateRecyclerView.setLayoutManager(getLayoutManager());
+        layoutManager = getLayoutManager();
+        ultimateRecyclerView.setLayoutManager(layoutManager);
         // header
         if (0 != getParallaxHeaderView()) {
             ultimateRecyclerView.setParallaxHeader(getParallaxHeaderView());
@@ -182,6 +184,10 @@ public abstract class RecyclerViewFragment<A extends easyRegularAdapter> extends
 
     protected final RecyclerView.LayoutManager getLinearLayoutManager() {
         return new ScrollSmoothLineaerLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false, 300);
+    }
+
+    protected void scrollToPosition(int position) {
+        layoutManager.scrollToPosition(position);
     }
 
     protected boolean getHasFixedSize() {
