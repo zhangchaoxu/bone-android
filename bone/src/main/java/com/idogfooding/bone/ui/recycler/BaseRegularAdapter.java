@@ -70,7 +70,7 @@ public abstract class BaseRegularAdapter<T, B extends BaseViewHolder> extends ea
 
     protected void loadImg(ImageView image, String pic, @DrawableRes int placeholder, @DrawableRes int errorholder) {
         image.setVisibility(View.VISIBLE);
-        Glide.with(mFragment).load(pic).diskCacheStrategy(DiskCacheStrategy.ALL).error(errorholder).placeholder(placeholder).into(image);
+        Glide.with(mFragment).load(pic).dontAnimate().diskCacheStrategy(DiskCacheStrategy.ALL).error(errorholder).placeholder(placeholder).into(image);
     }
 
     // [+] Progress Dialog

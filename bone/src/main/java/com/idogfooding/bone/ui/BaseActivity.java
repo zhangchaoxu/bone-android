@@ -208,7 +208,7 @@ public abstract class BaseActivity extends AutoLayoutActivity {
 
     protected void loadImg(ImageView image, String pic, @DrawableRes int placeholder, @DrawableRes int errorholder) {
         image.setVisibility(View.VISIBLE);
-        Glide.with(this).load(pic).diskCacheStrategy(DiskCacheStrategy.ALL).error(errorholder).placeholder(placeholder).into(image);
+        Glide.with(this).load(pic).dontAnimate().diskCacheStrategy(DiskCacheStrategy.ALL).error(errorholder).placeholder(placeholder).into(image);
     }
 
     // [+] network
