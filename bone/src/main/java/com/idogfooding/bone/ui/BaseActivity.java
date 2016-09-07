@@ -3,6 +3,7 @@ package com.idogfooding.bone.ui;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
@@ -11,10 +12,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.alibaba.fastjson.JSONException;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.idogfooding.bone.BaseApplication;
 import com.idogfooding.bone.R;
 import com.idogfooding.bone.network.ApiException;
@@ -197,6 +201,15 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     }
 
     // [-] actionbar
+
+    protected void loadImg(ImageView image, String pic) {
+        loadImg(image, pic, R.mipmap.ic_placeholder, R.mipmap.ic_errorholder);
+    }
+
+    protected void loadImg(ImageView image, String pic, @DrawableRes int placeholder, @DrawableRes int errorholder) {
+        image.setVisibility(View.VISIBLE);
+        Glide.with(this).load(pic).diskCacheStrategy(DiskCacheStrategy.ALL).error(errorholder).placeholder(placeholder).into(image);
+    }
 
     // [+] network
 
