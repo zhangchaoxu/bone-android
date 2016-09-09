@@ -200,7 +200,7 @@ class PhotoViewAttacher implements IPhotoView, View.OnTouchListener, VersionedGe
 	/**
 	 * Clean-up the resources attached to this object. This needs to be called
 	 * when the ImageView is no longer used. A good example is from
-	 * {@link android.view.View#onDetachedFromWindow()} or from
+	 * {@link View#onDetachedFromWindow()} or from
 	 * {@link android.app.Activity#onDestroy()}. This is automatically called if
 	 * you are using {@link EasePhotoView.co.senab.photoview.PhotoView}.
 	 */
@@ -792,7 +792,7 @@ class PhotoViewAttacher implements IPhotoView, View.OnTouchListener, VersionedGe
 	 * 
 	 * @author Chris Banes
 	 */
-	public static interface OnMatrixChangedListener {
+	public interface OnMatrixChangedListener {
 		/**
 		 * Callback for when the Matrix displaying the Drawable has changed.
 		 * This could be because the View's bounds have changed, or the user has
@@ -810,7 +810,7 @@ class PhotoViewAttacher implements IPhotoView, View.OnTouchListener, VersionedGe
 	 * 
 	 * @author Chris Banes
 	 */
-	public static interface OnPhotoTapListener {
+	public interface OnPhotoTapListener {
 
 		/**
 		 * A callback to receive where the user taps on a photo. You will only
@@ -835,7 +835,7 @@ class PhotoViewAttacher implements IPhotoView, View.OnTouchListener, VersionedGe
 	 * 
 	 * @author Chris Banes
 	 */
-	public static interface OnViewTapListener {
+	public interface OnViewTapListener {
 
 		/**
 		 * A callback to receive where the user taps on a ImageView. You will

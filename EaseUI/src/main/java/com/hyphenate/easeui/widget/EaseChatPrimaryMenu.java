@@ -18,7 +18,7 @@ import android.widget.RelativeLayout;
 import com.hyphenate.easeui.R;
 
 /**
- * 聊天输入栏主菜单栏
+ * primary menu
  *
  */
 public class EaseChatPrimaryMenu extends EaseChatPrimaryMenuBase implements OnClickListener {
@@ -31,9 +31,6 @@ public class EaseChatPrimaryMenu extends EaseChatPrimaryMenuBase implements OnCl
     private ImageView faceNormal;
     private ImageView faceChecked;
     private Button buttonMore;
-    private RelativeLayout faceLayout;
-    private Context context;
-    private EaseVoiceRecorderView voiceRecorderView;
 
     public EaseChatPrimaryMenu(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -50,7 +47,7 @@ public class EaseChatPrimaryMenu extends EaseChatPrimaryMenuBase implements OnCl
     }
 
     private void init(final Context context, AttributeSet attrs) {
-        this.context = context;
+        Context context1 = context;
         LayoutInflater.from(context).inflate(R.layout.ease_widget_chat_primary_menu, this);
         editText = (EditText) findViewById(R.id.et_sendmessage);
         buttonSetModeKeyboard = findViewById(R.id.btn_set_mode_keyboard);
@@ -60,7 +57,7 @@ public class EaseChatPrimaryMenu extends EaseChatPrimaryMenuBase implements OnCl
         buttonPressToSpeak = findViewById(R.id.btn_press_to_speak);
         faceNormal = (ImageView) findViewById(R.id.iv_face_normal);
         faceChecked = (ImageView) findViewById(R.id.iv_face_checked);
-        faceLayout = (RelativeLayout) findViewById(R.id.rl_face);
+        RelativeLayout faceLayout = (RelativeLayout) findViewById(R.id.rl_face);
         buttonMore = (Button) findViewById(R.id.btn_more);
         edittext_layout.setBackgroundResource(R.drawable.ease_input_bar_bg_normal);
         
@@ -84,7 +81,7 @@ public class EaseChatPrimaryMenu extends EaseChatPrimaryMenuBase implements OnCl
 
             }
         });
-        // 监听文字框
+        // listen the text change
         editText.addTextChangedListener(new TextWatcher() {
 
             @Override
@@ -122,15 +119,15 @@ public class EaseChatPrimaryMenu extends EaseChatPrimaryMenuBase implements OnCl
     }
     
     /**
-     * 设置长按说话录制控件
+     * set recorder view when speak icon is touched
      * @param voiceRecorderView
      */
     public void setPressToSpeakRecorderView(EaseVoiceRecorderView voiceRecorderView){
-        this.voiceRecorderView = voiceRecorderView;
+        EaseVoiceRecorderView voiceRecorderView1 = voiceRecorderView;
     }
 
     /**
-     * 表情输入
+     * append emoji icon to editText
      * @param emojiContent
      */
     public void onEmojiconInputEvent(CharSequence emojiContent){
@@ -138,7 +135,7 @@ public class EaseChatPrimaryMenu extends EaseChatPrimaryMenuBase implements OnCl
     }
     
     /**
-     * 表情删除
+     * delete emojicon
      */
     public void onEmojiconDeleteEvent(){
         if (!TextUtils.isEmpty(editText.getText())) {
@@ -148,7 +145,7 @@ public class EaseChatPrimaryMenu extends EaseChatPrimaryMenuBase implements OnCl
     }
     
     /**
-     * 点击事件
+     * on clicked event
      * @param view
      */
     @Override
@@ -195,7 +192,7 @@ public class EaseChatPrimaryMenu extends EaseChatPrimaryMenuBase implements OnCl
     
     
     /**
-     * 显示语音图标按钮
+     * show voice icon when speak bar is touched
      * 
      */
     protected void setModeVoice() {
@@ -212,7 +209,7 @@ public class EaseChatPrimaryMenu extends EaseChatPrimaryMenuBase implements OnCl
     }
 
     /**
-     * 显示键盘图标
+     * show keyboard
      */
     protected void setModeKeyboard() {
         edittext_layout.setVisibility(View.VISIBLE);

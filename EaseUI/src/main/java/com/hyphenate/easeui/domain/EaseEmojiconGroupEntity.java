@@ -24,7 +24,7 @@ public class EaseEmojiconGroupEntity {
     /**
      * 表情类型
      */
-    private EaseEmojicon.Type type;
+    private Type type;
     
     public EaseEmojiconGroupEntity(){}
     
@@ -34,7 +34,7 @@ public class EaseEmojiconGroupEntity {
         type = Type.NORMAL;
     }
     
-    public EaseEmojiconGroupEntity(int icon, List<EaseEmojicon> emojiconList, EaseEmojicon.Type type){
+    public EaseEmojiconGroupEntity(int icon, List<EaseEmojicon> emojiconList, Type type){
         this.icon = icon;
         this.emojiconList = emojiconList;
         this.type = type;
@@ -59,11 +59,11 @@ public class EaseEmojiconGroupEntity {
         this.name = name;
     }
 
-    public EaseEmojicon.Type getType() {
+    public Type getType() {
         return type;
     }
 
-    public void setType(EaseEmojicon.Type type) {
+    public void setType(Type type) {
         this.type = type;
     }
     

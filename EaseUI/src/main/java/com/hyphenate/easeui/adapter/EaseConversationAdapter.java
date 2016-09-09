@@ -1,9 +1,5 @@
 package com.hyphenate.easeui.adapter;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.TypedValue;
@@ -17,13 +13,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TextView.BufferType;
 
-import com.hyphenate.chat.EMChatManager;
 import com.hyphenate.chat.EMChatRoom;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMConversation.EMConversationType;
 import com.hyphenate.chat.EMGroup;
-import com.hyphenate.chat.EMGroupManager;
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.easeui.R;
 import com.hyphenate.easeui.domain.EaseUser;
@@ -34,11 +28,15 @@ import com.hyphenate.easeui.utils.EaseUserUtils;
 import com.hyphenate.easeui.widget.EaseConversationList.EaseConversationListHelper;
 import com.hyphenate.util.DateUtils;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 /**
- * 会话列表adapter
+ * conversation list adapter
  *
  */
-public class EaseConversationAdapater extends ArrayAdapter<EMConversation> {
+public class EaseConversationAdapter extends ArrayAdapter<EMConversation> {
     private static final String TAG = "ChatAllHistoryAdapter";
     private List<EMConversation> conversationList;
     private List<EMConversation> copyConversationList;
@@ -52,8 +50,8 @@ public class EaseConversationAdapater extends ArrayAdapter<EMConversation> {
     protected int secondarySize;
     protected float timeSize;
 
-    public EaseConversationAdapater(Context context, int resource,
-            List<EMConversation> objects) {
+    public EaseConversationAdapter(Context context, int resource,
+                                   List<EMConversation> objects) {
         super(context, resource, objects);
         conversationList = objects;
         copyConversationList = new ArrayList<EMConversation>();
@@ -98,9 +96,9 @@ public class EaseConversationAdapater extends ArrayAdapter<EMConversation> {
         }
         holder.list_itease_layout.setBackgroundResource(R.drawable.ease_mm_listitem);
 
-        // 获取与此用户/群组的会话
+        // get conversation
         EMConversation conversation = getItem(position);
-        // 获取用户username或者群组groupid
+        // get username or group id
         String username = conversation.getUserName();
         
         if (conversation.getType() == EMConversationType.GroupChat) {
@@ -110,7 +108,7 @@ public class EaseConversationAdapater extends ArrayAdapter<EMConversation> {
             }else{
                 holder.motioned.setVisibility(View.GONE);
             }
-            // 群聊消息，显示群聊头像
+            // group message, show group avatar
             holder.avatar.setImageResource(R.drawable.ease_group_icon);
             EMGroup group = EMClient.getInstance().groupManager().getGroup(username);
             holder.name.setText(group != null ? group.getGroupName() : username);
@@ -118,13 +116,15 @@ public class EaseConversationAdapater extends ArrayAdapter<EMConversation> {
             holder.avatar.setImageResource(R.drawable.ease_group_icon);
             EMChatRoom room = EMClient.getInstance().chatroomManager().getChatRoom(username);
             holder.name.setText(room != null && !TextUtils.isEmpty(room.getName()) ? room.getName() : username);
+            holder.motioned.setVisibility(View.GONE);
         }else {
             EaseUserUtils.setUserAvatar(getContext(), username, holder.avatar);
             EaseUserUtils.setUserNick(username, holder.name);
+            holder.motioned.setVisibility(View.GONE);
         }
 
         if (conversation.getUnreadMsgCount() > 0) {
-            // 显示与此用户的消息未读数
+            // show unread message count
             holder.unreadLabel.setText(String.valueOf(conversation.getUnreadMsgCount()));
             holder.unreadLabel.setVisibility(View.VISIBLE);
         } else {
@@ -132,7 +132,7 @@ public class EaseConversationAdapater extends ArrayAdapter<EMConversation> {
         }
 
         if (conversation.getAllMsgCount() != 0) {
-            // 把最后一条消息的内容作为item的message内容
+        	// show the content of latest message
             EMMessage lastMessage = conversation.getLastMessage();
             String content = null;
             if(cvsListHelper != null){
@@ -151,7 +151,7 @@ public class EaseConversationAdapater extends ArrayAdapter<EMConversation> {
             }
         }
         
-        //设置自定义属性
+        //set property
         holder.name.setTextColor(primaryColor);
         holder.message.setTextColor(secondaryColor);
         holder.time.setTextColor(timeColor);
@@ -209,9 +209,6 @@ public class EaseConversationAdapater extends ArrayAdapter<EMConversation> {
     }
 
 
-
-
-
     private class ConversationFilter extends Filter {
         List<EMConversation> mOriginalValues = null;
 
@@ -256,12 +253,12 @@ public class EaseConversationAdapater extends ArrayAdapter<EMConversation> {
                             final int wordCount = words.length;
 
                             // Start at index 0, in case valueText starts with space(s)
-                            for (int k = 0; k < wordCount; k++) {
-                                if (words[k].startsWith(prefixString)) {
-                                    newValues.add(value);
-                                    break;
-                                }
+                        for (String word : words) {
+                            if (word.startsWith(prefixString)) {
+                                newValues.add(value);
+                                break;
                             }
+                        }
                     }
                 }
 
@@ -283,9 +280,7 @@ public class EaseConversationAdapater extends ArrayAdapter<EMConversation> {
             } else {
                 notifyDataSetInvalidated();
             }
-
         }
-
     }
 
     private EaseConversationListHelper cvsListHelper;
@@ -295,19 +290,19 @@ public class EaseConversationAdapater extends ArrayAdapter<EMConversation> {
     }
     
     private static class ViewHolder {
-        /** 和谁的聊天记录 */
+        /** who you chat with */
         TextView name;
-        /** 消息未读数 */
+        /** unread message count */
         TextView unreadLabel;
-        /** 最后一条消息的内容 */
+        /** content of last message */
         TextView message;
-        /** 最后一条消息的时间 */
+        /** time of last message */
         TextView time;
-        /** 用户头像 */
+        /** avatar */
         ImageView avatar;
-        /** 最后一条消息的发送状态 */
+        /** status of last message */
         View msgState;
-        /** 整个list中每一行总布局 */
+        /** layout */
         RelativeLayout list_itease_layout;
         TextView motioned;
     }

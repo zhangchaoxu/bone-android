@@ -7,8 +7,8 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 314
-        versionName "V3.1.4"
+        versionCode 315
+        versionName "V3.1.5"
     }
 
     buildTypes {

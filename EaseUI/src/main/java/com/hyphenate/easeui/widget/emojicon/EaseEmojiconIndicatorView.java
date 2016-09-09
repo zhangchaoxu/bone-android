@@ -1,9 +1,5 @@
 package com.hyphenate.easeui.widget.emojicon;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import android.R.integer;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -17,6 +13,9 @@ import android.widget.RelativeLayout;
 
 import com.hyphenate.easeui.R;
 import com.hyphenate.util.DensityUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SuppressLint("NewApi")
 public class EaseEmojiconIndicatorView extends LinearLayout{
@@ -54,7 +53,7 @@ public class EaseEmojiconIndicatorView extends LinearLayout{
         dotViews = new ArrayList<ImageView>();
         for(int i = 0 ; i < count ; i++){
             RelativeLayout rl = new RelativeLayout(context);
-            LayoutParams params = new LinearLayout.LayoutParams(dotHeight,dotHeight);
+            LayoutParams params = new LayoutParams(dotHeight,dotHeight);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
             layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
             ImageView imageView = new ImageView(context);
@@ -90,7 +89,7 @@ public class EaseEmojiconIndicatorView extends LinearLayout{
             int diff = count - dotViews.size();
             for(int i = 0 ; i < diff ; i++){
                 RelativeLayout rl = new RelativeLayout(context);
-                LayoutParams params = new LinearLayout.LayoutParams(dotHeight,dotHeight);
+                LayoutParams params = new LayoutParams(dotHeight,dotHeight);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
                 layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
                 ImageView imageView = new ImageView(context);
