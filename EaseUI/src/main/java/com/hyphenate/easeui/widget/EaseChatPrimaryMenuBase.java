@@ -10,6 +10,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
+import com.hyphenate.easeui.utils.ActivityUtils;
+
 public abstract class EaseChatPrimaryMenuBase extends RelativeLayout{
     protected EaseChatPrimaryMenuListener listener;
     protected Activity activity;
@@ -31,10 +33,12 @@ public abstract class EaseChatPrimaryMenuBase extends RelativeLayout{
     }
     
     private void init(Context context){
-        this.activity = (Activity) context;
+        this.activity = ActivityUtils.getActivityFromContext(context);
         inputManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
     }
-    
+
+
+
     /**
      * set primary menu listener
      * @param listener
