@@ -141,4 +141,11 @@ public class ListRow extends AutoRelativeLayout {
         return row_subtitle;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getSubtitle() {
+        return subtitle;
+    }
 }
