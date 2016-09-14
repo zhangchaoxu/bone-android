@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.idogfooding.bone.network.PagedResult;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -64,7 +65,9 @@ public abstract class PagedFragment<T, A extends BaseRegularAdapter> extends Rec
         }*/
         if (result.getTotalRow() == 0) {
             ultimateRecyclerView.showEmptyView();
+            adapter.replace(new ArrayList<T>());
         } else {
+            ultimateRecyclerView.hideEmptyView();
             if (refresh) {
                 adapter.replace(result.getList());
                 scrollToPosition(0);
