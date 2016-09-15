@@ -1,6 +1,7 @@
 package com.idogfooding.bone.utils;
 
 import android.app.Activity;
+import android.util.Log;
 
 import java.util.Stack;
 
@@ -10,11 +11,10 @@ import java.util.Stack;
  *
  * @author liux (http://my.oschina.net/liux)
  * @author Charles (zhangchaoxu@gmail.com)
- * @version 1.1
- * @since 2012-3-21
- * @update 2014-07-22
  */
 public class AppManager {
+
+    private static final String TAG = AppManager.class.getSimpleName();
 
     private static Stack<Activity> activityStack;
     private static AppManager instance;
@@ -147,6 +147,8 @@ public class AppManager {
             finishAllActivity();
             System.exit(0);
         } catch (Exception e) {
+            Log.e(TAG, "fail exit app:" + e.getMessage());
+            e.printStackTrace();
         }
     }
 }
