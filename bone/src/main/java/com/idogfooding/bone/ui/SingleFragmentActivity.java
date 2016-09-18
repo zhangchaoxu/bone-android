@@ -55,7 +55,7 @@ public abstract class SingleFragmentActivity extends BaseActivity {
         // replace content with fragment
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment, mFragment);
-        fragmentTransaction.commit();
+        fragmentTransaction.commitAllowingStateLoss();
     }
 
     // [+] option menu
