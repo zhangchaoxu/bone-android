@@ -246,7 +246,7 @@ public abstract class BaseActivity extends AutoLayoutActivity {
         if (apiException.isUnauthorized()) {
             //AppContext.getInstance().accountLogout();
             BaseApplication.showToast("登录信息失效,请重新登录!");
-            Intent intent = new Intent(".USER.LOGIN");
+            Intent intent = new Intent(getPackageName() + ".USER.LOGIN");
             startActivity(intent);
             AppManager.getAppManager().finishAllActivityExcept("LoginActivity");
         } else {

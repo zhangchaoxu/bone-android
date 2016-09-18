@@ -135,7 +135,7 @@ public abstract class BaseRegularAdapter<T, B extends BaseViewHolder> extends ea
         if (apiException.isUnauthorized()) {
             //AppContext.getInstance().accountLogout();
             BaseApplication.showToast("登录信息失效,请重新登录!");
-            Intent intent = new Intent(".USER.LOGIN");
+            Intent intent = new Intent(mFragment.getContext().getPackageName() + ".USER.LOGIN");
             mFragment.startActivity(intent);
             AppManager.getAppManager().finishAllActivityExcept("LoginActivity");
         } else {
