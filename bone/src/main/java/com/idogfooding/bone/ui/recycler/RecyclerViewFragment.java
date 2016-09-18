@@ -89,14 +89,13 @@ public abstract class RecyclerViewFragment<A extends easyRegularAdapter> extends
                 }
             });
         }
-        disableLoadMore();
         // click enable
         if (isClickEnabled()) {
             enableItemClick();
         }
-
         // init adapter and data
         ultimateRecyclerView.setAdapter(adapter);
+        disableLoadMore();
     }
 
     protected abstract void createAdapter();
