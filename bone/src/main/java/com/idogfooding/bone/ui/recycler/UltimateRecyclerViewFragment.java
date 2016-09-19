@@ -20,6 +20,7 @@ import com.marshalchen.ultimaterecyclerview.ui.divideritemdecoration.HorizontalD
 import com.marshalchen.ultimaterecyclerview.ui.emptyview.emptyViewOnShownListener;
 
 /**
+ * @deprecated
  * UltimateRecyclerViewFragment
  *
  * @author Charles

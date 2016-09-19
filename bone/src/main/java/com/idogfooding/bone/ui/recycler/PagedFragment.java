@@ -64,7 +64,9 @@ public abstract class PagedFragment<T, A extends BaseRegularAdapter> extends Rec
             adapter.removeAll();
         }*/
         if (result.getTotalRow() == 0) {
-            ultimateRecyclerView.showEmptyView();
+            if (!hasHeaderView()) {
+                ultimateRecyclerView.showEmptyView();
+            }
             adapter.replace(new ArrayList<T>());
         } else {
             ultimateRecyclerView.hideEmptyView();

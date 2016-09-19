@@ -144,6 +144,10 @@ public abstract class RecyclerViewFragment<A extends easyRegularAdapter> extends
         return 0;
     }
 
+    protected boolean hasHeaderView() {
+        return 0 != getParallaxHeaderView() || 0 != getNormalHeaderView();
+    }
+
     @Override
     public void onParallaxScroll(float percentage, float offset, View parallax) {
 
