@@ -29,8 +29,8 @@ public abstract class SingleFragmentActivity extends BaseActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void afterContentView(Bundle savedInstanceState) {
+        super.afterContentView(savedInstanceState);
 
         // replace content with fragment
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

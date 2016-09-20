@@ -49,4 +49,22 @@ public class NumberUtils {
         return parseToLong(str, 0L);
     }
 
+    public static float rountWithReserved(float number, int reserved) {
+        if (reserved < 0)
+            return 0;
+        else if (reserved == 0)
+            return Math.round(number);
+        else
+            return (float) (Math.round(number * 10 * reserved) / (10 * reserved));
+    }
+
+    public static double rountWithReserved(double number, int reserved) {
+        if (reserved < 0)
+            return 0;
+        else if (reserved == 0)
+            return Math.round(number);
+        else
+            return (double) (Math.round(number * 10 * reserved) / (10 * reserved));
+    }
+
 }
