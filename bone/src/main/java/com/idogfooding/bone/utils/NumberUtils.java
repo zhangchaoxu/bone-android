@@ -21,6 +21,20 @@ public class NumberUtils {
         return parseToDouble(str, 0d);
     }
 
+    public static float parseToFloat(String str, float defaultVal) {
+        Float val;
+        try {
+            val = Float.valueOf(str);
+        } catch (Exception e) {
+            val = defaultVal;
+        }
+        return val;
+    }
+
+    public static float parseToFloat(String str) {
+        return parseToFloat(str, 0f);
+    }
+
     public static int parseToInt(String str, int defaultVal) {
         int doubleVal;
         try {
