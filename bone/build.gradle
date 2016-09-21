@@ -93,4 +93,9 @@ dependencies {
     // glide
     compile deps.glide
     compile deps.glideOkhttp
+
+    // debug
+    // stetho
+    compile deps.stetho
+    compile deps.stethoOkhttp
 }

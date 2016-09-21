@@ -146,7 +146,7 @@ public class BaseApplication extends Application {
 
     // [+] Last Refresh Time
     public static void setRefreshTime(String key) {
-        setRefreshTime(key, Calendar.getInstance().get(Calendar.MILLISECOND));
+        setRefreshTime(key, Calendar.getInstance().getTimeInMillis());
     }
 
     public static void setRefreshTime(String key, long value) {
