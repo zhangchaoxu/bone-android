@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.os.Looper;
 import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -13,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.ViewTarget;
 
 import java.io.Serializable;
@@ -66,6 +68,24 @@ public class BaseApplication extends Application {
             }
         }
         return false;
+    }
+
+    public void clearGlideCache() {
+        try {
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Glide.get(_context).clearDiskCache();
+                    }
+                });
+            } else {
+                Glide.get(_context).clearDiskCache();
+            }
+            Glide.get(this).clearMemory();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     // [+] Shared Preference
