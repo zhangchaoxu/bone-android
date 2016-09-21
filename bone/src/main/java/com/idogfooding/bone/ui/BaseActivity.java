@@ -7,7 +7,6 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +23,7 @@ import com.idogfooding.bone.R;
 import com.idogfooding.bone.network.ApiException;
 import com.idogfooding.bone.rx.RxBus;
 import com.idogfooding.bone.utils.AppManager;
+import com.orhanobut.logger.Logger;
 import com.umeng.analytics.MobclickAgent;
 import com.zhy.autolayout.AutoLayoutActivity;
 
@@ -51,11 +51,12 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // before content view
+        Logger.d(TAG + ".onCreate->beforeContentView");
         beforeContentView();
         setContentView(getLayoutId());
-        Log.d(TAG, TAG + ".onCreate...");
         // after content view
         afterContentView(savedInstanceState);
+        Logger.d(TAG + ".onCreate->afterContentView");
 
         // add the activity into the stack
         AppManager.getAppManager().addActivity(this);
@@ -233,8 +234,7 @@ public abstract class BaseActivity extends AutoLayoutActivity {
             errorMsg = R.string.socket_timeout_exception;
         }
         BaseApplication.showToast(errorMsg);
-        Log.e(TAG, "handleNetworkError: " +  throwable.getMessage());
-        throwable.printStackTrace();
+        Logger.e(throwable, getString(errorMsg));
     }
 
     /**
@@ -250,7 +250,7 @@ public abstract class BaseActivity extends AutoLayoutActivity {
             startActivity(intent);
             AppManager.getAppManager().finishAllActivityExcept("LoginActivity");
         } else {
-            Log.e(TAG, "ApiException,code:" + apiException.getCode() + ",msg=" + apiException.getMessage());
+            Logger.e(TAG, "ApiException,code:" + apiException.getCode() + ",msg=" + apiException.getMessage());
             BaseApplication.showToast(apiException.getCode() + ":" + apiException.getMessage());
         }
     }

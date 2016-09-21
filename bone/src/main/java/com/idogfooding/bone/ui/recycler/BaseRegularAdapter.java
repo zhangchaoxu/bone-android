@@ -2,7 +2,6 @@ package com.idogfooding.bone.ui.recycler;
 
 import android.content.Intent;
 import android.support.annotation.DrawableRes;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -15,6 +14,7 @@ import com.idogfooding.bone.R;
 import com.idogfooding.bone.network.ApiException;
 import com.idogfooding.bone.utils.AppManager;
 import com.marshalchen.ultimaterecyclerview.quickAdapter.easyRegularAdapter;
+import com.orhanobut.logger.Logger;
 
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
@@ -60,7 +60,7 @@ public abstract class BaseRegularAdapter<T, B extends BaseViewHolder> extends ea
             }
         } catch (Exception e) {
             String o = e.fillInStackTrace().getCause().getMessage().toString();
-            Log.d("fillInStackTrace", o + " : ");
+            Logger.d("fillInStackTrace", o + " : ");
         }
     }
 
@@ -122,8 +122,7 @@ public abstract class BaseRegularAdapter<T, B extends BaseViewHolder> extends ea
             errorMsg = R.string.socket_timeout_exception;
         }
         BaseApplication.showToast(errorMsg);
-        Log.e(TAG, "handleNetworkError: " +  throwable.getMessage());
-        throwable.printStackTrace();
+        Logger.e(throwable, mFragment.getString(errorMsg));
     }
 
     /**
@@ -139,7 +138,7 @@ public abstract class BaseRegularAdapter<T, B extends BaseViewHolder> extends ea
             mFragment.startActivity(intent);
             AppManager.getAppManager().finishAllActivityExcept("LoginActivity");
         } else {
-            Log.e(TAG, "ApiException,code:" + apiException.getCode() + ",msg=" + apiException.getMessage());
+            Logger.e(TAG, "ApiException,code:" + apiException.getCode() + ",msg=" + apiException.getMessage());
             BaseApplication.showToast(apiException.getCode() + ":" + apiException.getMessage());
         }
     }

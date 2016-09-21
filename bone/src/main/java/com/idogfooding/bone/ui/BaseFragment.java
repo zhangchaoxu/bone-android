@@ -3,7 +3,6 @@ package com.idogfooding.bone.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,6 +19,7 @@ import com.idogfooding.bone.BaseApplication;
 import com.idogfooding.bone.R;
 import com.idogfooding.bone.network.ApiException;
 import com.idogfooding.bone.utils.AppManager;
+import com.orhanobut.logger.Logger;
 import com.umeng.analytics.MobclickAgent;
 
 import java.net.SocketTimeoutException;
@@ -108,8 +108,7 @@ public abstract class BaseFragment extends android.support.v4.app.Fragment {
             errorMsg = R.string.socket_timeout_exception;
         }
         BaseApplication.showToast(errorMsg);
-        Log.e(TAG, throwable.getMessage());
-        throwable.printStackTrace();
+        Logger.e(throwable, getString(errorMsg));
     }
 
     /**
@@ -124,7 +123,7 @@ public abstract class BaseFragment extends android.support.v4.app.Fragment {
             startActivity(intent);
             AppManager.getAppManager().finishAllActivityExcept("LoginActivity");
         } else {
-            Log.e(TAG, "ApiException,code:" + apiException.getCode() + ",msg=" + apiException.getMessage());
+            Logger.e(TAG, "ApiException,code:" + apiException.getCode() + ",msg=" + apiException.getMessage());
             BaseApplication.showToast(apiException.getCode() + ":" + apiException.getMessage());
         }
     }

@@ -1,7 +1,8 @@
 package com.idogfooding.bone.utils;
 
 import android.app.Activity;
-import android.util.Log;
+
+import com.orhanobut.logger.Logger;
 
 import java.util.Stack;
 
@@ -147,7 +148,7 @@ public class AppManager {
             finishAllActivity();
             System.exit(0);
         } catch (Exception e) {
-            Log.e(TAG, "fail exit app:" + e.getMessage());
+            Logger.e(e, TAG);
             e.printStackTrace();
         }
     }

@@ -98,4 +98,5 @@ dependencies {
     // stetho
     compile deps.stetho
     compile deps.stethoOkhttp
+    compile deps.logger
 }
