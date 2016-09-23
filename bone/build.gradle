@@ -1,10 +1,16 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
+
+    compileOptions {
+        sourceCompatibility rootProject.ext.sourceCompatibility
+        targetCompatibility rootProject.ext.targetCompatibility
+    }
 
     dexOptions {
         javaMaxHeapSize "4g" //specify the heap size for the dex process
@@ -20,10 +26,7 @@ android {
         multiDexEnabled true
     }
 
-    compileOptions {
-        sourceCompatibility rootProject.ext.sourceCompatibility
-        targetCompatibility rootProject.ext.targetCompatibility
-    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -59,6 +62,10 @@ dependencies {
     compile deps.rxandroid
     compile deps.rxpermissions
     compile deps.rxpreferences
+
+    // permissionsDispatcher
+    compile deps.permissionsDispatcher
+    apt deps.permissionsDispatcherProcessor
 
     // db
     compile deps.dbflowcore

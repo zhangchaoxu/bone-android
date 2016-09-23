@@ -12,19 +12,20 @@ import android.net.Uri;
 public class SettingsUtils {
 
     public static Intent openApplicationSettings(String packageName) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.GINGERBREAD) {
-            Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-            intent.setData(Uri.parse("package:" + packageName));
-            return intent;
-        }
-        return new Intent();
+        Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        intent.setData(Uri.parse("package:" + packageName));
+        return intent;
     }
 
     public static void openApplicationSettings(Context context, String packageName) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.GINGERBREAD) {
-            Intent intent = openApplicationSettings(packageName);
-            context.startActivity(intent);
-        }
+        Intent intent = openApplicationSettings(packageName);
+        context.startActivity(intent);
+    }
+
+    public static void openApplicationSettings(Context context) {
+        String packageName = AppInfoUtils.getPackageName(context);
+        Intent intent = openApplicationSettings(packageName);
+        context.startActivity(intent);
     }
 
 }
