@@ -27,8 +27,9 @@ android {
     lintOptions {
         abortOnError false
     }
-
-    useLibrary 'org.apache.http.legacy'
+    // copy jar file into libs to fix Could not normalize path
+    // http://stackoverflow.com/questions/33773763/could-not-normalize-path-in-bintrayupload
+    // useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {
@@ -43,7 +44,7 @@ def siteUrl = 'https://github.com/zhangchaoxu/bone-android'
 def gitUrl = 'https://github.com/zhangchaoxu/bone-android.git'
 // group name do not need match package name
 // will be display in the compile path
-def reponame = 'EaseUI'
+def artifactId = 'EaseUI'
 group = 'com.idogfooding.bone'
 
 Properties properties = new Properties()
@@ -55,7 +56,7 @@ install {
         pom {
             project {
                 packaging 'aar'
-                name reponame
+                name artifactId
                 url siteUrl
                 licenses {
                     license {

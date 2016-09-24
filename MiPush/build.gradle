@@ -37,7 +37,7 @@ def siteUrl = 'https://github.com/zhangchaoxu/bone-android'
 def gitUrl = 'https://github.com/zhangchaoxu/bone-android.git'
 // group name do not need match package name
 // will be display in the compile path
-def reponame = 'MiPush'
+def artifactId = 'MiPush'
 group = 'com.idogfooding.bone'
 
 Properties properties = new Properties()
@@ -49,7 +49,7 @@ install {
         pom {
             project {
                 packaging 'aar'
-                name reponame
+                name artifactId
                 url siteUrl
                 licenses {
                     license {
