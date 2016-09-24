@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * Base Application
  *
- * @author Charles <zhangchaoxu@gmail.com>
+ * @author Charles
  */
 public class BaseApplication extends Application {
 

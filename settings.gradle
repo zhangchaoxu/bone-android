@@ -1,1 +1,1 @@
-include 'bone', ":BaiduMap", ":MiPush", ":EaseUI"
+include 'bone', ':BaiduMap', ':MiPush', ':EaseUI'
