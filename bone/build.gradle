@@ -115,7 +115,7 @@ def siteUrl = 'https://github.com/zhangchaoxu/bone-android'
 def gitUrl = 'https://github.com/zhangchaoxu/bone-android.git'
 // group name do not need match package name
 // will be display in the compile path
-def artifactId = 'lib'
+def artifactId = 'bone'
 group = 'com.idogfooding.bone'
 
 Properties properties = new Properties()
