@@ -8,7 +8,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "V4.0.0_20160924"
+        versionName "v4.0.0_r1"
     }
 
     buildTypes {
