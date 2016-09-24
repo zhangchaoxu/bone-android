@@ -38,7 +38,11 @@ def siteUrl = 'https://github.com/zhangchaoxu/bone-android'
 def gitUrl = 'https://github.com/zhangchaoxu/bone-android.git'
 // group name do not need match package name
 // will be display in the compile path
-group = "com.idogfooding.bone"
+def reponame = 'BaiduMap'
+group = 'com.idogfooding.bone'
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 install {
     repositories.mavenInstaller {
@@ -46,7 +50,7 @@ install {
         pom {
             project {
                 packaging 'aar'
-                name 'BaiduMap support base map and location'
+                name reponame
                 url siteUrl
                 licenses {
                     license {
@@ -56,9 +60,9 @@ install {
                 }
                 developers {
                     developer {
-                        id 'zhangchaoxu'
-                        name 'Charles'
-                        email 'zhangchaoxu@gmail.com'
+                        id properties.getProperty("developer.id")
+                        name properties.getProperty("developer.name")
+                        email properties.getProperty("developer.email")
                     }
                 }
                 scm {
@@ -92,15 +96,13 @@ artifacts {
     archives sourcesJar
 }
 
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
 bintray {
     user = properties.getProperty("bintray.user")
     key = properties.getProperty("bintray.apikey")
     configurations = ['archives']
     pkg {
         repo = "maven"
-        name = "BaiduMap"
+        name = reponame
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
