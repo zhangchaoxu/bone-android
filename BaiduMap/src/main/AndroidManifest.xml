@@ -26,9 +26,9 @@
             android:process=":remote" />
 
         <!-- replace with your key -->
-        <!--  <meta-data
+        <meta-data
              android:name="com.baidu.lbsapi.API_KEY"
-             android:value="key" />-->
+             android:value="${BAIDU_API_KEY}" />
 
     </application>
 
