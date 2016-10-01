@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "v3.1.5_r3"
+version = "v3.1.5_r4"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -13,8 +13,10 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3
-        versionName "v3.1.5_r3"
+        versionCode 4
+        versionName version
+
+        manifestPlaceholders = ["@EASEMOB_APPKEY": ""]
     }
 
     buildTypes {

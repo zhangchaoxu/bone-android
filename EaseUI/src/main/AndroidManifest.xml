@@ -35,7 +35,7 @@
         </receiver>
 
         <!-- replace with your key -->
-        <!--<meta-data android:name="EASEMOB_APPKEY"  android:value="Your AppKey" />-->
+        <meta-data android:name="EASEMOB_APPKEY"  android:value="${EASEMOB_APPKEY}" />
         <!-- EaseMob end -->
     </application>
 
