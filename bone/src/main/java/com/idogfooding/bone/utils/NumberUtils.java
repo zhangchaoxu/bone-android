@@ -1,5 +1,7 @@
 package com.idogfooding.bone.utils;
 
+import java.math.BigDecimal;
+
 /**
  * NumberUtils
  *
@@ -63,6 +65,10 @@ public class NumberUtils {
         return parseToLong(str, 0L);
     }
 
+    public static float rountWithReserved(float number) {
+        return rountWithReserved(number, 2);
+    }
+
     public static float rountWithReserved(float number, int reserved) {
         if (reserved < 0)
             return 0;
@@ -79,6 +85,32 @@ public class NumberUtils {
             return Math.round(number);
         else
             return (double) (Math.round(number * 10 * reserved) / (10 * reserved));
+    }
+
+    public static double reserveDouble(double value, int reserved, int roundingMode) {
+        BigDecimal bigDecimal = new BigDecimal(value);
+        return bigDecimal.setScale(reserved, roundingMode).doubleValue();
+    }
+
+    public static double reserveDouble(double value, int reserved) {
+        return reserveDouble(value, reserved, BigDecimal.ROUND_HALF_UP);
+    }
+
+    public static double reserveDouble(double value) {
+        return reserveDouble(value, 2);
+    }
+
+    public static float reserveFloat(float value, int reserved, int roundingMode) {
+        BigDecimal bigDecimal = new BigDecimal(value);
+        return bigDecimal.setScale(reserved, roundingMode).floatValue();
+    }
+
+    public static float reserveFloat(float value, int reserved) {
+        return reserveFloat(value, reserved, BigDecimal.ROUND_HALF_UP);
+    }
+
+    public static float reserveFloat(float value) {
+        return reserveFloat(value, 2);
     }
 
 }
