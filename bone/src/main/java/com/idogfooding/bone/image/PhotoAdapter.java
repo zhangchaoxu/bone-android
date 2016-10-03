@@ -33,6 +33,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
     private int mRequestCode = 0;
     private int mPhotoCount = 4;
     private int mGridColumnCount = 4;
+    private boolean clearAll = false;
     private int placeholder = R.drawable.__picker_ic_photo_black_48dp;
     private int errorholder = R.drawable.__picker_ic_broken_image_black_48dp;
 
@@ -70,6 +71,10 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
         this.mGridColumnCount = gridColumnCount;
     }
 
+    public void setClearAll(boolean clearAll) {
+        this.clearAll = clearAll;
+    }
+
     public void setPlaceholder(int placeholder) {
         this.placeholder = placeholder;
     }
@@ -90,16 +95,11 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
 
         if (path.equalsIgnoreCase(ITEM_MORE)) {
             Glide.with(mActivity).load(R.mipmap.ic_more_photo).into(holder.ivPhoto);
-            holder.ivPhoto.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    PhotoPicker.builder()
-                            .setPhotoCount(mPhotoCount)
-                            .setGridColumnCount(mGridColumnCount)
-                            .setSelected(removeMoreItem())
-                            .start(mActivity, mRequestCode == 0 ? PhotoPicker.REQUEST_CODE : mRequestCode);
-                }
-            });
+            holder.ivPhoto.setOnClickListener(view -> PhotoPicker.builder()
+                    .setPhotoCount(mPhotoCount)
+                    .setGridColumnCount(mGridColumnCount)
+                    .setSelected(clearAll ? new ArrayList<>() : removeMoreItem())
+                    .start(mActivity, mRequestCode == 0 ? PhotoPicker.REQUEST_CODE : mRequestCode));
         } else {
             String photoPath = mPhotoPaths.get(position);
             if (photoPath.startsWith("http")) {
@@ -115,16 +115,11 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
                         .into(holder.ivPhoto);
             }
 
-            holder.ivPhoto.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    PhotoPreview.builder()
-                            .setPhotos(removeMoreItem())
-                            .setCurrentItem(position)
-                            .setShowDeleteButton(mShowDeleteButton)
-                            .start(mActivity, mRequestCode == 0 ? PhotoPreview.REQUEST_CODE : mRequestCode);
-                }
-            });
+            holder.ivPhoto.setOnClickListener(view -> PhotoPreview.builder()
+                    .setPhotos(removeMoreItem())
+                    .setCurrentItem(position)
+                    .setShowDeleteButton(clearAll ? false : mShowDeleteButton)
+                    .start(mActivity, mRequestCode == 0 ? PhotoPreview.REQUEST_CODE : mRequestCode));
         }
     }
 

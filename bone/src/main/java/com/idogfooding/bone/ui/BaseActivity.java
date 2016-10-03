@@ -3,6 +3,7 @@ package com.idogfooding.bone.ui;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
@@ -353,6 +354,17 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     @SuppressWarnings("unchecked")
     protected <V extends Serializable> V getSerializableExtra(final String name) {
         return (V) getIntent().getSerializableExtra(name);
+    }
+
+    /**
+     * Get intent extra
+     *
+     * @param name
+     * @return Parcelable
+     */
+    @SuppressWarnings("unchecked")
+    protected <V extends Parcelable> V getParcelableExtra(final String name) {
+        return (V) getIntent().getParcelableExtra(name);
     }
 
     /**
