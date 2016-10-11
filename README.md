@@ -23,98 +23,25 @@ dependencies {
 }
 ```
 
+### Alipay
+[支付宝App支付SDK](https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.5LlDVj&treeId=193&articleId=105051&docType=1)
+version: v15.2.2(20160825)
+```gradle
+dependencies {
+    compile ''
+}
+```
+
 ### WxCommon
-[使用微信分享、登录、收藏、支付等功能需要的库以及文件](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319167&token=&lang=zh_CN)
-
-## How to Publish
-
-### Publish library into maven and jcenter
-*  add local.properties with bintray.user = yourusername and bintray.apikey = yourapikey under root folder
-*  add maven gradle plugin into root build.gradle
-```
-classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
-classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
-```
-*  add jcenter cfg into subModule's build.gradle
-```
-def siteUrl = 'https://github.com/zhangchaoxu/bone-android'
-def gitUrl = 'https://github.com/zhangchaoxu/bone-android.git'
-// group name do not need match package name
-// will be display in the compile path
-def reponame = 'BaiduMap'
-group = 'com.idogfooding.bone'
-
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-install {
-    repositories.mavenInstaller {
-        // This generates POM.xml with proper parameters
-        pom {
-            project {
-                packaging 'aar'
-                name reponame
-                url siteUrl
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id properties.getProperty("developer.id")
-                        name properties.getProperty("developer.name")
-                        email properties.getProperty("developer.email")
-                    }
-                }
-                scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
-                }
-            }
-        }
-    }
-}
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    options {
-        encoding = "UTF-8"
-        charSet "UTF-8"
-    }
-}
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-artifacts {
-    archives javadocJar
-    archives sourcesJar
-}
-
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-    configurations = ['archives']
-    pkg {
-        repo = "maven"
-        name = reponame
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
-        publish = true
-    }
+[微信分享、登录、收藏、支付等功](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319167&token=&lang=zh_CN)
+version: v3.1.1
+```gradle
+dependencies {
+    compile ''
 }
 ```
-*  run `gradlew bintrayUpload` for global project upload or `gradlew :ModuleName:bintrayUpload` for subModule publish
-*  the jar/doc will be publish in maven, and add to jcenter if you want in bintrayy page()
+
+## [How to Publish]()
 
 ## License
 
