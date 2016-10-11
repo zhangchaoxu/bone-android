@@ -23,9 +23,12 @@ dependencies {
 }
 ```
 
+### WxCommon
+[使用微信分享、登录、收藏、支付等功能需要的库以及文件](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319167&token=&lang=zh_CN)
+
 ## How to Publish
 
-### Publish to maven and jcenter
+### Publish library into maven and jcenter
 *  add local.properties with bintray.user = yourusername and bintray.apikey = yourapikey under root folder
 *  add maven gradle plugin into root build.gradle
 ```
@@ -111,7 +114,7 @@ bintray {
 }
 ```
 *  run `gradlew bintrayUpload` for global project upload or `gradlew :ModuleName:bintrayUpload` for subModule publish
-*  the jar/doc will be publish in maven, and add to jcenter if you want
+*  the jar/doc will be publish in maven, and add to jcenter if you want in bintrayy page()
 
 ## License
 

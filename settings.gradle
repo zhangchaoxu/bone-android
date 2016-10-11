@@ -1,1 +1,1 @@
-include 'bone', ':BaiduMap', ':MiPush', ':EaseUI', ':Alipay'
+include 'bone', ':BaiduMap', ':MiPush', ':EaseUI', ':Alipay', ':WxCommon'
