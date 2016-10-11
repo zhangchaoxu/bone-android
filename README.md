@@ -25,6 +25,7 @@ dependencies {
 
 ### Alipay
 [支付宝App支付SDK](https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.5LlDVj&treeId=193&articleId=105051&docType=1)
+
 version: v15.2.2(20160825)
 ```gradle
 dependencies {
@@ -35,13 +36,14 @@ dependencies {
 ### WxCommon
 [微信分享、登录、收藏、支付等功](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319167&token=&lang=zh_CN)
 version: v3.1.1
+
 ```gradle
 dependencies {
     compile ''
 }
 ```
 
-## [How to Publish]()
+## [How to Publish](https://github.com/zhangchaoxu/bone-android/blob/master/PUBLISH.md)
 
 ## License
 
