@@ -54,7 +54,7 @@ public abstract class PagedFragment<T, A extends BaseRegularAdapter> extends Rec
     /**
      * call Subscribe on load list
      */
-    protected void loadListOnSubscribe() {
+    public void loadListOnSubscribe() {
         ultimateRecyclerView.setRefreshing(true);
     }
 
@@ -87,7 +87,7 @@ public abstract class PagedFragment<T, A extends BaseRegularAdapter> extends Rec
         }
     }
 
-    protected void loadListOnError(Throwable throwable) {
+    public void loadListOnError(Throwable throwable) {
         ultimateRecyclerView.setRefreshing(false);
         handleNetworkError(throwable);
     }
