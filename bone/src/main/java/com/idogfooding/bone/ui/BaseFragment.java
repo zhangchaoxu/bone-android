@@ -139,6 +139,10 @@ public abstract class BaseFragment extends android.support.v4.app.Fragment {
         }
     }
 
+    public void showProgress() {
+        showProgress(R.string.msg_wait);
+    }
+
     public void showProgress(int contentResId) {
         showProgress(getString(contentResId));
     }

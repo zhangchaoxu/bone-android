@@ -13,6 +13,7 @@ import com.idogfooding.bone.BaseApplication;
 import com.idogfooding.bone.R;
 import com.idogfooding.bone.network.ApiException;
 import com.idogfooding.bone.utils.AppManager;
+import com.idogfooding.bone.utils.KeyboardUtils;
 import com.marshalchen.ultimaterecyclerview.quickAdapter.easyRegularAdapter;
 import com.orhanobut.logger.Logger;
 
@@ -82,6 +83,10 @@ public abstract class BaseRegularAdapter<T, B extends BaseViewHolder> extends ea
     public void hiddenProgress() {
         if (null != mProgressDialog && mProgressDialog.isShowing() && !mFragment.getActivity().isFinishing())
             mProgressDialog.dismiss();
+    }
+
+    public void showProgress() {
+        showProgress(R.string.msg_wait);
     }
 
     public void showProgress(int contentResId) {

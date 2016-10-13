@@ -24,6 +24,7 @@ import com.idogfooding.bone.R;
 import com.idogfooding.bone.network.ApiException;
 import com.idogfooding.bone.rx.RxBus;
 import com.idogfooding.bone.utils.AppManager;
+import com.idogfooding.bone.utils.KeyboardUtils;
 import com.orhanobut.logger.Logger;
 import com.umeng.analytics.MobclickAgent;
 import com.zhy.autolayout.AutoLayoutActivity;
@@ -310,6 +311,10 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     public void hiddenProgress() {
         if (null != mProgressDialog && mProgressDialog.isShowing() && !isFinishing())
             mProgressDialog.dismiss();
+    }
+
+    public void showProgress() {
+        showProgress(R.string.msg_wait);
     }
 
     public void showProgress(int contentResId) {

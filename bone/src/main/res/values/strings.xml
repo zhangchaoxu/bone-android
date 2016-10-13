@@ -40,7 +40,7 @@
 
     <string name="msg_login_ing">登录中&#8230;</string>
     <string name="msg_submit_ing">数据提交中&#8230;</string>
-    <string name="msg_wait">应用处理中,请稍等...</string>
+    <string name="msg_wait">请稍等&#8230;</string>
     <string name="network_unavailable">网络连接不可用</string>
     <string name="tips_network_unavailable">您的设备未启动移动网络或无线局域网\n前往设置检查网络连接?</string>
 
