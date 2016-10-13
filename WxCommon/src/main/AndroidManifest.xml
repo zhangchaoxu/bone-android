@@ -1,4 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.idogfooding.wx.common">
+          package="com.idogfooding.wx.common">
+
+    <application>
+
+        <!-- wx pay call back -->
+        <activity
+            android:name="${PACKAGE_NAME}.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"/>
+
+    </application>
 
 </manifest>
