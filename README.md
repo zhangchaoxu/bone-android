@@ -29,7 +29,7 @@ dependencies {
 version: v15.2.2(20160825)
 ```gradle
 dependencies {
-    compile ''
+    compile 'com.idogfooding.bone:Alipay:v20160825_r2@aar'
 }
 ```
 
@@ -39,7 +39,7 @@ version: v3.1.1
 
 ```gradle
 dependencies {
-    compile ''
+    compile 'com.idogfooding.bone:WxCommon:v3.1.1_r2@aar'
 }
 ```
 
