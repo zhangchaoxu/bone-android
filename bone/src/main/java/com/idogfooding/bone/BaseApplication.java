@@ -73,12 +73,7 @@ public class BaseApplication extends Application {
     public void clearGlideCache() {
         try {
             if (Looper.myLooper() == Looper.getMainLooper()) {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Glide.get(_context).clearDiskCache();
-                    }
-                });
+                new Thread(() -> Glide.get(_context).clearDiskCache());
             } else {
                 Glide.get(_context).clearDiskCache();
             }
@@ -178,7 +173,7 @@ public class BaseApplication extends Application {
     }
 
     public static long getRefreshInterval(String key) {
-        return Calendar.getInstance().get(Calendar.MILLISECOND) - getRefreshTime(key);
+        return Calendar.getInstance().getTimeInMillis() - getRefreshTime(key);
     }
     // [-] Last Refresh Time
     // [-] Shared Preference
@@ -236,9 +231,9 @@ public class BaseApplication extends Application {
         if (message.equalsIgnoreCase(lastToast) && Math.abs(System.currentTimeMillis() - lastToastTime) < 2000)
             return;
 
-        Toast toast=Toast.makeText(context(), message, duration);
+        Toast toast = Toast.makeText(context(), message, duration);
         if (0 != icon) {
-            ImageView imageView= new ImageView(context());
+            ImageView imageView = new ImageView(context());
             imageView.setImageResource(icon);
             LinearLayout toastView = (LinearLayout) toast.getView();
             toastView.setOrientation(LinearLayout.HORIZONTAL);
