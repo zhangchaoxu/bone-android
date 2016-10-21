@@ -24,14 +24,18 @@ import com.idogfooding.bone.R;
 import com.idogfooding.bone.network.ApiException;
 import com.idogfooding.bone.rx.RxBus;
 import com.idogfooding.bone.utils.AppManager;
-import com.idogfooding.bone.utils.KeyboardUtils;
+import com.idogfooding.bone.utils.PermissionRequest;
+import com.idogfooding.bone.utils.SettingsUtils;
 import com.orhanobut.logger.Logger;
+import com.tbruyelle.rxpermissions.RxPermissions;
 import com.umeng.analytics.MobclickAgent;
 import com.zhy.autolayout.AutoLayoutActivity;
 
 import java.io.Serializable;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.ButterKnife;
 
@@ -468,6 +472,113 @@ public abstract class BaseActivity extends AutoLayoutActivity {
         MobclickAgent.onPause(this);
     }
     // [-] umeng analytics
+
+    // [+] Permission
+    protected List<PermissionRequest> permissionRequests = new ArrayList<>();
+
+    protected void initPermissionRequests() {
+       /* permissionRequests.add(new PermissionRequest(Manifest.permission.WRITE_EXTERNAL_STORAGE));
+        permissionRequests.add(new PermissionRequest(Manifest.permission.ACCESS_COARSE_LOCATION));
+        permissionRequests.add(new PermissionRequest(Manifest.permission.ACCESS_FINE_LOCATION));
+        permissionRequests.add(new PermissionRequest(Manifest.permission.CAMERA));
+        permissionRequests.add(new PermissionRequest(Manifest.permission.CALL_PHONE));*/
+    }
+
+    protected void afterGranted() {
+        // do sth after granted all permission
+    }
+
+    protected void checkPermissionRequestResult() {
+        boolean requestAll = true;
+        boolean grantedAll = true;
+        boolean showDeniedForPermission = false;
+        boolean showNeverAskForPermission = false;
+        for (PermissionRequest permissionRequest : permissionRequests) {
+            if (permissionRequest.isRequested()) {
+                if (!permissionRequest.isGranted()) {
+                    grantedAll = false;
+                    if (permissionRequest.isDenied()) {
+                        showDeniedForPermission = true;
+                    } else if (permissionRequest.isNeverAskAgain()) {
+                        showNeverAskForPermission = true;
+                    }
+                }
+            } else {
+                requestAll = false;
+                break;
+            }
+        }
+
+        if (requestAll) {
+            if (grantedAll) {
+                afterGranted();
+            } else if (showNeverAskForPermission) {
+                showNeverAskForPermission();
+            } else if (showDeniedForPermission) {
+                showDeniedForPermission();
+            }
+        }
+    }
+
+    /**
+     * Request Permission
+     */
+    protected void requestForPermission() {
+        for (PermissionRequest permissionRequest : permissionRequests) {
+            permissionRequest.setRequested(false);
+            permissionRequest.setGranted(false);
+            permissionRequest.setDenied(false);
+            permissionRequest.setNeverAskAgain(false);
+        }
+        for (PermissionRequest permissionRequest : permissionRequests) {
+            RxPermissions.getInstance(this)
+                    .requestEach(permissionRequest.getName())
+                    .subscribe(permission -> {
+                        permissionRequest.setRequested(true);
+                        if (permission.granted) {
+                            permissionRequest.setGranted(true);
+                        } else if (permission.shouldShowRequestPermissionRationale) {
+                            permissionRequest.setDenied(true);
+                        } else {
+                            permissionRequest.setNeverAskAgain(true);
+                        }
+                        checkPermissionRequestResult();
+                    });
+        }
+    }
+
+    /**
+     * Denied permission without ask never again
+     */
+    protected void showDeniedForPermission() {
+        new MaterialDialog.Builder(this)
+                .title("请允许获取设备信息")
+                .content("我们需要获取设备信息,为您进行设备识别;\n否则您将无法正常使用" + getString(R.string.app_name))
+                .positiveText(R.string.confirm)
+                .negativeText(R.string.denied)
+                .onPositive((dialog, which) -> requestForPermission())
+                .onNegative((dialog, which) -> finish())
+                .show();
+    }
+
+    /**
+     * Denied permission with ask never again,Need to go to the settings
+     */
+    protected void showNeverAskForPermission() {
+        new MaterialDialog.Builder(this)
+                .title("请允许获取设备信息")
+                .content("我们需要获取设备信息,为您进行设备识别;\n否则您将无法正常使用" + getString(R.string.app_name)
+                        + "\n\n设置路径: 系统设置->" + getString(R.string.app_name) + "->权限")
+                .positiveText("去设置")
+                .negativeText(R.string.cancel)
+                .onPositive((dialog, which) -> {
+                    SettingsUtils.openApplicationSettings(this);
+                    finish();
+                })
+                .onNegative((dialog, which) -> finish())
+                .show();
+    }
+    // [-] Permission
 
     @Override
     protected void onDestroy() {
