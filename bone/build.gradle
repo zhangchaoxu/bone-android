@@ -68,10 +68,6 @@ dependencies {
     compile deps.rxpermissions
     compile deps.rxpreferences
 
-    // permissionsDispatcher
-    compile deps.permissionsDispatcher
-    apt deps.permissionsDispatcherProcessor
-
     // db
     compile deps.dbflowcore
     compile deps.dbflow
