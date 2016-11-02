@@ -1,5 +1,6 @@
 package com.idogfooding.bone.ui;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -477,11 +478,10 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     protected List<PermissionRequest> permissionRequests = new ArrayList<>();
 
     protected void initPermissionRequests() {
-       /* permissionRequests.add(new PermissionRequest(Manifest.permission.WRITE_EXTERNAL_STORAGE));
+        permissionRequests.add(new PermissionRequest(Manifest.permission.WRITE_EXTERNAL_STORAGE));
         permissionRequests.add(new PermissionRequest(Manifest.permission.ACCESS_COARSE_LOCATION));
         permissionRequests.add(new PermissionRequest(Manifest.permission.ACCESS_FINE_LOCATION));
         permissionRequests.add(new PermissionRequest(Manifest.permission.CAMERA));
-        permissionRequests.add(new PermissionRequest(Manifest.permission.CALL_PHONE));*/
     }
 
     protected void afterGranted() {
