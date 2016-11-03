@@ -41,9 +41,8 @@ ext.deps = [
         rxpermissions                 : 'com.tbruyelle.rxpermissions:rxpermissions:0.8.0@aar',
         // rxpreferences https://github.com/f2prateek/rx-preferences
         rxpreferences                 : 'com.f2prateek.rx.preferences:rx-preferences:1.0.2',
-
         // Analytics
-        analytics                     : 'com.umeng.analytics:analytics:6.0.1',
+        analytics                     : 'com.umeng.analytics:analytics:6.0.3',
 
         // view
         // ViewBinding https://github.com/JakeWharton/butterknife
@@ -59,7 +58,7 @@ ext.deps = [
         // material dialogs https://github.com/afollestad/material-dialogs
         materialdialogscore           : 'com.afollestad.material-dialogs:core:0.9.0.2',
         // PhotoPicker https://github.com/donglua/PhotoPicker
-        PhotoPicker                   : 'me.iwf.photopicker:PhotoPicker:0.8.12@aar',
+        PhotoPicker                   : 'me.iwf.photopicker:PhotoPicker:0.9.0@aar',
         // PhotoCrop https://github.com/Yalantis/uCrop
         ucrop                         : 'com.yalantis:ucrop:2.2.0',
         // Photo Compress compile https://github.com/Curzibn/Luban
@@ -67,7 +66,7 @@ ext.deps = [
         // circleimageview https://github.com/hdodenhof/CircleImageView
         circleimageview               : 'de.hdodenhof:circleimageview:2.1.0',
         // TabLayout https://github.com/H07000223/FlycoTabLayout
-        FlycoTabLayout                : 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.8@aar',
+        FlycoTabLayout                : 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.0@aar',
         // glide https://github.com/bumptech/glide
         glide                         : 'com.github.bumptech.glide:glide:3.7.0',
         glideOkhttp                   : 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar',
