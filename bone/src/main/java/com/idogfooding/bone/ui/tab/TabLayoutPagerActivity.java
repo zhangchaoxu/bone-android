@@ -94,6 +94,10 @@ public abstract class TabLayoutPagerActivity<V extends TabFragmentPagerAdapter> 
 
     }
 
+    protected void onTabLayoutReselect(int position) {
+
+    }
+
     private void createPager() {
         adapter = createAdapter();
         invalidateOptionsMenu();
@@ -151,6 +155,7 @@ public abstract class TabLayoutPagerActivity<V extends TabFragmentPagerAdapter> 
             @Override
             public void onTabReselect(int position) {
                 onTabClick(position);
+                onTabLayoutReselect(position);
             }
         });
 

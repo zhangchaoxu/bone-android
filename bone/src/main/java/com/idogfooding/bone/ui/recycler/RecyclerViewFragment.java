@@ -189,7 +189,7 @@ public abstract class RecyclerViewFragment<A extends easyRegularAdapter> extends
         return new ScrollSmoothLineaerLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false, 300);
     }
 
-    protected void scrollToPosition(int position) {
+    public void scrollToPosition(int position) {
         layoutManager.scrollToPosition(position);
     }
 
