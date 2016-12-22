@@ -58,7 +58,7 @@
     <string name="network_exception">网络访问异常,请检查网络后重试</string>
     <string name="unknown_exception">发生未知错误</string>
     <string name="json_exception">数据格式错误</string>
-    <string name="unknown_host_exception">未知目标域名错误</string>
+    <string name="unknown_host_exception">未知的网络异常或网络已经断开</string>
     <string name="class_cast_exception">数据类型转换错误</string>
     <string name="io_exception">数据读写错误</string>
     <string name="null_point_exception">空指针异常</string>
