@@ -40,7 +40,7 @@ dependencies {
     compile deps.glide
     //compile project(':BaiduMap')
     //compile project(':MiPush')
-    compile 'com.idogfooding.bone:MiPush:v3.1.2_r1@aar'
+    compile 'com.idogfooding.bone:MiPush:v3.2.1_r3@aar'
     compile 'com.idogfooding.bone:BaiduMap:v4.0.0_r1@aar'
 }
 
