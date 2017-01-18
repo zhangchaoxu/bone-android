@@ -18,7 +18,6 @@ import com.hyphenate.chat.EMMessage;
 import com.hyphenate.chat.EMMessage.Direct;
 import com.hyphenate.easeui.R;
 import com.hyphenate.easeui.adapter.EaseMessageAdapter;
-import com.hyphenate.easeui.utils.ActivityUtils;
 import com.hyphenate.easeui.utils.EaseUserUtils;
 import com.hyphenate.easeui.widget.EaseChatMessageList;
 import com.hyphenate.easeui.widget.EaseChatMessageList.MessageListItemClickListener;
@@ -56,7 +55,7 @@ public abstract class EaseChatRow extends LinearLayout {
     public EaseChatRow(Context context, EMMessage message, int position, BaseAdapter adapter) {
         super(context);
         this.context = context;
-        this.activity = ActivityUtils.getActivityFromContext(context);
+        this.activity = (Activity) context;
         this.message = message;
         this.position = position;
         this.adapter = adapter;
@@ -87,7 +86,7 @@ public abstract class EaseChatRow extends LinearLayout {
      * @param position
      */
     public void setUpView(EMMessage message, int position,
-            EaseChatMessageList.MessageListItemClickListener itemClickListener) {
+            MessageListItemClickListener itemClickListener) {
         this.message = message;
         this.position = position;
         this.itemClickListener = itemClickListener;
@@ -192,7 +191,7 @@ public abstract class EaseChatRow extends LinearLayout {
                 
                 @Override
                 public void onError(int code, String error) {
-                    updateView();
+                    updateView(code, error);
                 }
             };
         }
@@ -308,20 +307,27 @@ public abstract class EaseChatRow extends LinearLayout {
         activity.runOnUiThread(new Runnable() {
             public void run() {
                 if (message.status() == EMMessage.Status.FAIL) {
-
-                    if (message.getError() == EMError.MESSAGE_INCLUDE_ILLEGAL_CONTENT) {
-                        Toast.makeText(activity,activity.getString(R.string.send_fail) + activity.getString(R.string.error_send_invalid_content), Toast.LENGTH_SHORT).show();
-                    } else if (message.getError() == EMError.GROUP_NOT_JOINED) {
-                        Toast.makeText(activity,activity.getString(R.string.send_fail) + activity.getString(R.string.error_send_not_in_the_group), Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(activity,activity.getString(R.string.send_fail) + activity.getString(R.string.connect_failuer_toast), Toast.LENGTH_SHORT).show();
-                    }
+                    Toast.makeText(activity,activity.getString(R.string.send_fail) + activity.getString(R.string.connect_failuer_toast), Toast.LENGTH_SHORT).show();
                 }
 
                 onUpdateView();
             }
         });
+    }
 
+    protected void updateView(final int errorCode, final String desc) {
+        activity.runOnUiThread(new Runnable() {
+            public void run() {
+                if (errorCode == EMError.MESSAGE_INCLUDE_ILLEGAL_CONTENT) {
+                    Toast.makeText(activity,activity.getString(R.string.send_fail) + activity.getString(R.string.error_send_invalid_content), Toast.LENGTH_SHORT).show();
+                } else if (errorCode == EMError.GROUP_NOT_JOINED) {
+                    Toast.makeText(activity,activity.getString(R.string.send_fail) + activity.getString(R.string.error_send_not_in_the_group), Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(activity,activity.getString(R.string.send_fail) + activity.getString(R.string.connect_failuer_toast), Toast.LENGTH_SHORT).show();
+                }
+                onUpdateView();
+            }
+        });
     }
 
     protected abstract void onInflateView();

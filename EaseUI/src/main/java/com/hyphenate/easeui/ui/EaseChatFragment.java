@@ -527,7 +527,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
             }
 
             @Override
-            public void onMemberKicked(String roomId, String roomName, String participant) {
+            public void onRemovedFromChatRoom(String roomId, String roomName, String participant) {
                 if (roomId.equals(toChatUsername)) {
                     String curUser = EMClient.getInstance().getCurrentUser();
                     if (curUser.equals(participant)) {
@@ -566,7 +566,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
             }
 
             // if the message is for current conversation
-            if (username.equals(toChatUsername)) {
+            if (username.equals(toChatUsername) || message.getTo().equals(toChatUsername)) {
                 messageList.refreshSelectLast();
                 EaseUI.getInstance().getNotifier().vibrateAndPlayTone(message);
             } else {
@@ -581,14 +581,14 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
     }
 
     @Override
-    public void onMessageReadAckReceived(List<EMMessage> messages) {
+    public void onMessageRead(List<EMMessage> messages) {
         if(isMessageListInited) {
             messageList.refresh();
         }
     }
 
     @Override
-    public void onMessageDeliveryAckReceived(List<EMMessage> messages) {
+    public void onMessageDelivered(List<EMMessage> messages) {
         if(isMessageListInited) {
             messageList.refresh();
         }
@@ -956,7 +956,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
             break;
         }
         
-        if(forward_msg.getChatType() == ChatType.ChatRoom){
+        if(forward_msg.getChatType() == EMMessage.ChatType.ChatRoom){
             EMClient.getInstance().chatroomManager().leaveChatRoom(forward_msg.getTo());
         }
     }
