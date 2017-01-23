@@ -15,8 +15,6 @@ import com.idogfooding.bone.utils.ViewUtils;
  */
 public abstract class TabLayoutPagerActivity<V extends TabFragmentPagerAdapter> extends PagerActivity {
 
-    private static final int OFFSCREEN_PAGES = 3;
-
     protected ViewPager pager;
     protected CommonTabLayout tabLayout;
 
@@ -133,6 +131,10 @@ public abstract class TabLayoutPagerActivity<V extends TabFragmentPagerAdapter> 
     public void switchToTab(int position) {
     }
 
+    public int getOffScreenPages() {
+        return 3;
+    }
+
     @Override
     protected void afterContentView(Bundle savedInstanceState) {
         super.afterContentView(savedInstanceState);
@@ -141,7 +143,7 @@ public abstract class TabLayoutPagerActivity<V extends TabFragmentPagerAdapter> 
 
         // setup ViewPager
         pager.addOnPageChangeListener(this);
-        pager.setOffscreenPageLimit(OFFSCREEN_PAGES);
+        pager.setOffscreenPageLimit(getOffScreenPages());
         pager.setScrollable(false);
 
         //set up tab layout
