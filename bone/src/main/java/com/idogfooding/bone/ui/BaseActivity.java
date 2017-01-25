@@ -531,7 +531,7 @@ public abstract class BaseActivity extends AutoLayoutActivity {
             permissionRequest.setNeverAskAgain(false);
         }
         for (PermissionRequest permissionRequest : permissionRequests) {
-            RxPermissions.getInstance(this)
+            new RxPermissions(this)
                     .requestEach(permissionRequest.getName())
                     .subscribe(permission -> {
                         permissionRequest.setRequested(true);

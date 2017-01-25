@@ -1,6 +1,7 @@
 package com.idogfooding.bone.utils;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -26,12 +27,12 @@ public class TelephoneUtils {
      * @param context
      * @param phone
      */
-    public static void call(final Context context, final String phone) {
+    public static void call(final Activity context, final String phone) {
         if (TextUtils.isEmpty(phone)) {
             BaseApplication.showToast("电话号码不能为空");
             return;
         }
-        RxPermissions.getInstance(context)
+        new RxPermissions(context)
                 .request(Manifest.permission.CALL_PHONE)
                 .subscribe(new Action1<Boolean>() {
                     @Override
