@@ -19,7 +19,7 @@ bone is the base lib
 
 ```gradle
 dependencies {
-    compile 'com.idogfooding.bone:bone:1.0.1@aar'
+    compile 'com.idogfooding.bone:bone:1.0.3@aar'
 }
 ```
 
