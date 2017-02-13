@@ -126,6 +126,12 @@ public class BaseApplication extends Application {
         editor.apply();
     }
 
+    public static void set(String key, float value) {
+        SharedPreferences.Editor editor = getPreferences().edit();
+        editor.putFloat(key, value);
+        editor.apply();
+    }
+
     public static boolean get(String key, boolean defValue) {
         return getPreferences().getBoolean(key, defValue);
     }
