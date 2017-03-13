@@ -59,6 +59,18 @@ dependencies {
 }
 ```
 
+### ShareSDK
+[第三方登录和社会化分享](http://sharesdk.mob.com/downloadDetail/ShareSDK/android)
+version: v2.8.1
+
+```gradle
+dependencies {
+    compile 'com.idogfooding.bone:ShareSDK:v2.8.1_r1'
+}
+```
+
+集成了onesharesdk和一些资源，只包含了QQ、微信好友、微信朋友圈，若需要其他的，请自行加入libs。
+
 ## [How to Publish](https://github.com/zhangchaoxu/bone-android/blob/master/PUBLISH.md)
 
 ## License
