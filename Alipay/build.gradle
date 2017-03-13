@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "v20160825_r2"
+version = "v20161222_r3"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
