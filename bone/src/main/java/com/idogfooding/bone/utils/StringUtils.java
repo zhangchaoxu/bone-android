@@ -2,6 +2,7 @@ package com.idogfooding.bone.utils;
 
 import android.text.TextUtils;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -75,6 +76,14 @@ public class StringUtils {
     public static String getUUID() {
         String uuid = UUID.randomUUID().toString();
         return uuid.substring(0, 8) + uuid.substring(9, 13) + uuid.substring(14, 18) + uuid.substring(19, 23) + uuid.substring(24);
+    }
+
+    public static List<String> splitToArray(String str, String separator) {
+        if (TextUtils.isEmpty(str)) {
+            return new ArrayList<>();
+        } else {
+            return Arrays.asList(str.split(separator, -1));
+        }
     }
 
     public static String getBracketsContent(String str) {
