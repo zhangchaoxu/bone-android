@@ -66,7 +66,6 @@
     <string name="dissolution_group_hint">The group will be dismissed after exiting</string>
     <string name="exit_group">Exit</string>
     <string name="connect_conflict">The same account was loggedin in other device</string>
-    <string name="ease_user_remove">This user has been removed</string>
     <string name="set">Settings</string>
     <string name="notify">New message notification</string>
     <string name="newnotify">Receiving a new message</string>
@@ -108,7 +107,7 @@
     <string name="password">Password</string>
     <string name="register">Register</string>
     <string name="confirmpassword">Confirm password</string>
-    <string name="downwaiting">Downloading the file, please try again later</string>
+    <string name="downwaiting">Downloading the file, please wait a moment</string>
     <string name="mute">Mute</string>
     <string name="Hands_free">Hands free</string>
     <string name="hang_up">Hang up</string>
@@ -119,7 +118,7 @@
     <string name="Group_chat">Group chat</string>
     <string name="chat_room">Chat room</string>
     <string name="not_download">Did not download:</string>
-    <string name="is_down_please_wait">Downloading video, please try again later</string>
+    <string name="is_down_please_wait">Downloading video, please wait a moment</string>
     <string name="Exit_the_group_chat">Exit the group</string>
     <string name="Please_enter_a_username">Please enter a username</string>
 
@@ -156,7 +155,8 @@
     <string name="Move_into_blacklist_success">Move into blacklist success</string>
     <string name="Move_into_blacklist_failure">Move into blacklist failure</string>
     <string name="you_are_group">You have been kicked off from the group</string>
-    <string name="the_current_group">The current group has been dismissed</string>
+    <string name="the_current_group_destroyed">The current group has been dismissed</string>
+    <string name="the_current_chat_room_destroyed">The current chat room has been dismissed</string>
     <string name="Cant_chat_with_yourself">cannot chat with yourself</string>
     <string name="deleting">Deleting..</string>
     <string name="Delete_failed">Failed to delete</string>
@@ -229,7 +229,6 @@
     <string name="Version_number_is_wrong">Version number is wrong</string>
     <string name="Are_connected_to_each_other">Connecting to peer..</string>
     <string name="Is_not_yet_connected_to_the_server">Not connect to server</string>
-    <string name="have_connected_with">Connected to the peer and waiting for the peer to accept</string>
     <string name="In_the_call">In the call..</string>
     <string name="The_other_party_refused_to_accept">The call was refused</string>
     <string name="Connection_failure">Connection failed!</string>
@@ -291,9 +290,11 @@
     <string name="toast_nick_not_isnull">nick cannot be empty!</string>
     <string name="dl_update_nick">update nickname</string>
     <string name="dl_update_photo">update photo</string>
-    <string name="dl_waiting">waiting...</string>
+    <string name="dl_waiting">waiting…</string>
     <string name="toast_updatenick_success">update nickname success!</string>
     <string name="toast_updatenick_fail">update nickname fail!</string>
     <string name="toast_updatephoto_success">update photo success!</string>
     <string name="toast_updatephoto_fail">update photo fail!</string>
+    <string name="quiting_the_chat_room">Exiting chat room</string>
+
 </resources>
