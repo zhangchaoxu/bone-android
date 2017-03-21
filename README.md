@@ -2,16 +2,22 @@
 
 ## About
 ![Logo with Title]()
+在Android开发的过程中,或多或少会以来一些云服务商提供的SDK,比如小米推送、百度定位、支付宝支付、微信登录等。
+本Repo的目的是为了解决在引入这些sdk的过程中可能会存在以下问题：
+1. sdk未发布到中央仓库,需要手动加入jar、so，甚至一些资源文件;
+2. 需要侵入AndroidManifest.xml,做权限声明,activity/service,id/key等的定义;
 
-bone-android is forked from [AndPlug](https://github.com/ourbeehive/AndPlug).  
+## Module Version
+各个sdk版本定义依据[sdkversion]_r[buildversion]的方式定义，如
+小米消息推送服务SDK，sdk原始版本是v3.2.2,是这个model的第4次build,因此按本号是v3.2.2_r4
 
 ## Module Libs
 
 ### app
-TODO
+TODO demo app
  
 ### bone
-bone is the base lib
+this lib is @deprecated.
 
 ```gradle
 dependencies {
@@ -21,11 +27,14 @@ dependencies {
 
 ### Alipay
 [支付宝App支付SDK](https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.5LlDVj&treeId=193&articleId=105051&docType=1)
+1. 引入jar
+2. Android中声明权限和activity
+3. 引入logo资源文件
 
-version: v15.2.8(20161222)
+version: v15.3.3(20170309)
 ```gradle
 dependencies {
-    compile 'com.idogfooding.bone:Alipay:v20161222_r3@aar'
+    compile 'com.idogfooding.bone:Alipay:v15.3.3_r4@aar'
 }
 ```
 
@@ -70,6 +79,9 @@ dependencies {
 ```
 
 集成了onesharesdk和一些资源，只包含了QQ、微信好友、微信朋友圈，若需要其他的，请自行加入libs。
+
+## Thanks
+[AndPlug](https://github.com/ourbeehive/AndPlug)
 
 ## [How to Publish](https://github.com/zhangchaoxu/bone-android/blob/master/PUBLISH.md)
 
