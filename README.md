@@ -28,8 +28,7 @@ dependencies {
 ### Alipay v15.3.3(20170309)
 [支付宝App支付SDK](https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.5LlDVj&treeId=193&articleId=105051&docType=1)
 1. 引入jar
-2. Android中声明权限和activity
-3. 引入logo资源文件
+2. Android中声明权限和service
 
 ```gradle
 dependencies {
@@ -47,9 +46,11 @@ dependencies {
 }
 ```
 
-### MiPush
+### MiPush v3.2.2
 [小米消息推送服务](http://dev.xiaomi.com/console/appservice/push.html)
-version: v3.2.2
+1. 引入jar
+2. Android中声明权限和activity
+3. 引入logo资源文件
 
 ```gradle
 dependencies {

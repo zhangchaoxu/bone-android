@@ -62,7 +62,6 @@
                 <action android:name="com.xiaomi.mipush.ERROR" />
             </intent-filter>
         </receiver>
-
         <!-- mi push end -->
 
     </application>
