@@ -25,13 +25,12 @@ dependencies {
 }
 ```
 
-### Alipay
+### Alipay v15.3.3(20170309)
 [支付宝App支付SDK](https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.5LlDVj&treeId=193&articleId=105051&docType=1)
 1. 引入jar
 2. Android中声明权限和activity
 3. 引入logo资源文件
 
-version: v15.3.3(20170309)
 ```gradle
 dependencies {
     compile 'com.idogfooding.bone:Alipay:v15.3.3_r4@aar'
