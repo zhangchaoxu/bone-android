@@ -8,7 +8,7 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
-    resourcePrefix "tbs_"
+    //resourcePrefix "tbs_"
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
