@@ -4,7 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.webkit.WebView;
+
+import com.tencent.smtt.sdk.WebView;
 
 /**
  * BrowserActivity
@@ -12,7 +13,6 @@ import android.webkit.WebView;
  * @author Charles
  */
 public class BrowserActivity extends AppCompatActivity {
-
 
     WebView wvBrowser;
 
