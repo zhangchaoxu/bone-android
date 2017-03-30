@@ -80,6 +80,17 @@ dependencies {
 
 集成了onesharesdk和一些资源，只包含了QQ、微信好友、微信朋友圈，若需要其他的，请自行加入libs。
 
+### TBS v3.1.1
+[腾讯浏览服务](http://x5.tencent.com/tbs/index.html)
+1. 集成Android SDK（完整版）
+2. Android中声明权限
+
+```gradle
+dependencies {
+    compile 'com.idogfooding.bone:TBS:v3.1.1_r1@aar'
+}
+```
+
 ## Thanks
 [AndPlug](https://github.com/ourbeehive/AndPlug)
 
