@@ -94,7 +94,7 @@ public abstract class PagedFragment<T, A extends BaseRegularAdapter> extends Rec
 
     protected Map<String, Object> initFields() {
         Map<String, Object> fields = new HashMap<>();
-        fields.put("pageNum", pageNumber);
+        fields.put("pageNumber", pageNumber);
         return fields;
     }
 

@@ -82,7 +82,7 @@ public class StringUtils {
         if (TextUtils.isEmpty(str)) {
             return new ArrayList<>();
         } else {
-            return Arrays.asList(str.split(separator, -1));
+            return new ArrayList<>(Arrays.asList(str.split(separator, -1)));
         }
     }
 
