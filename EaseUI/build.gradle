@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "v3.3.0_r6"
+version = "v3.3.0_r8"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -13,7 +13,7 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 6
+        versionCode 8
         versionName version
 
         manifestPlaceholders = ["@EASEMOB_APPKEY": ""]
@@ -36,11 +36,11 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
-    compile deps.supportv4
+    compile deps.appcompat
     compile deps.glide
     //compile project(':BaiduMap')
     //compile project(':MiPush')
-    compile 'com.idogfooding.bone:MiPush:v3.2.1_r3@aar'
+    compile 'com.idogfooding.bone:MiPush:v3.2.2_r4@aar'
     compile 'com.idogfooding.bone:BaiduMap:v4.0.0_r1@aar'
 }
 

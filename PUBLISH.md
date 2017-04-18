@@ -86,5 +86,5 @@ bintray {
 }
 ```
 *  run `gradlew bintrayUpload` for global project upload or `gradlew :ModuleName:bintrayUpload` for subModule publish
-*  the jar/doc will be publish in maven, and add to jcenter if you want in bintrayy page()
+*  the jar/doc will be publish in maven, and add to jcenter if you want in bintray page
 
