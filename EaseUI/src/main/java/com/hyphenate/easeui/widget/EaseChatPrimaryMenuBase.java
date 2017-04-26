@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 
 public abstract class EaseChatPrimaryMenuBase extends RelativeLayout{
     protected EaseChatPrimaryMenuListener listener;
-    protected Activity activity;
+    protected Context activity;
     protected InputMethodManager inputManager;
 
     public EaseChatPrimaryMenuBase(Context context, AttributeSet attrs, int defStyle) {
@@ -31,7 +31,7 @@ public abstract class EaseChatPrimaryMenuBase extends RelativeLayout{
     }
     
     private void init(Context context){
-        this.activity = (Activity) context;
+        this.activity = context;
         inputManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
     }
     
@@ -72,9 +72,12 @@ public abstract class EaseChatPrimaryMenuBase extends RelativeLayout{
      * hide keyboard
      */
     public void hideKeyboard() {
-        if (activity.getWindow().getAttributes().softInputMode != WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
-            if (activity.getCurrentFocus() != null)
-                inputManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        if (activity instanceof Activity) {
+            Activity aty = (Activity) activity;
+            if (aty.getWindow().getAttributes().softInputMode != WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
+                if (aty.getCurrentFocus() != null)
+                    inputManager.hideSoftInputFromWindow(aty.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            }
         }
     }
     
