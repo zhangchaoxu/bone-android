@@ -70,15 +70,19 @@ dependencies {
 
 ### ShareSDK
 [第三方登录和社会化分享](http://sharesdk.mob.com/downloadDetail/ShareSDK/android)
-version: v2.8.1
+version: v2.8.3
 
 ```gradle
 dependencies {
-    compile 'com.idogfooding.bone:ShareSDK:v2.8.1_r1'
+    compile 'com.idogfooding.bone:ShareSDK:v2.8.3_r2'
 }
 ```
 
-集成了onesharesdk和一些资源，只包含了QQ、微信好友、微信朋友圈，若需要其他的，请自行加入libs。
+集成了onesharesdk和一些资源，只包含了QQ、微信好友、微信朋友圈、新浪微博，若需要其他的，请自行加入libs。
+
+使用方法：
+1. 将ShareSDK.xml放入app的assets
+2. 将WXEntryActivity放入app的wxapi目录下
 
 ### TBS v3.1.1
 [腾讯浏览服务](http://x5.tencent.com/tbs/index.html)
