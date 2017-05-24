@@ -3,12 +3,6 @@
 
     <application>
 
-        <!-- wx pay call back -->
-        <activity
-            android:name="${PACKAGE_NAME}.wxapi.WXPayEntryActivity"
-            android:exported="true"
-            android:launchMode="singleTop"/>
-
     </application>
 
 </manifest>
