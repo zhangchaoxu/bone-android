@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "v3.1.0.1034_r2"
+version = "v3.1_r2"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -15,8 +15,6 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 2
         versionName version
-
-        manifestPlaceholders = ["@PACKAGE_NAME": ""]
 
         ndk {
             abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
