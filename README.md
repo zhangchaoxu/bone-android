@@ -74,15 +74,20 @@ version: v2.8.3
 
 ```gradle
 dependencies {
-    compile 'com.idogfooding.bone:ShareSDK:v2.8.3_r2'
+    compile 'com.idogfooding.bone:ShareSDK:v2.8.3_r4'
 }
 ```
 
-集成了onesharesdk和一些资源，只包含了QQ、微信好友、微信朋友圈、新浪微博，若需要其他的，请自行加入libs。
+集成了onesharesdk和一些资源，lib只包含微信好友和微信朋友圈，若需要其他的，请自行加入app的libs。
 
 使用方法：
+0. 将需要的其他libs加入app libs，如新浪微博、qq等
 1. 将ShareSDK.xml放入app的assets
 2. 将WXEntryActivity放入app的wxapi目录下
+3. 添加activity信息
+4. 初始化并且使用share sdk
+
+更多使用方法见(官方说明)[http://wiki.mob.com/Android_%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/]
 
 ### TBS v3.1.1
 [腾讯浏览服务](http://x5.tencent.com/tbs/index.html)
