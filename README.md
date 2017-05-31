@@ -74,7 +74,7 @@ version: v2.8.3
 
 ```gradle
 dependencies {
-    compile 'com.idogfooding.bone:ShareSDK:v2.8.3_r4@aar'
+    compile 'com.idogfooding.bone:ShareSDK:v2.8.3_r5@aar'
 }
 ```
 
