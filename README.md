@@ -46,15 +46,14 @@ dependencies {
 }
 ```
 
-### MiPush v3.2.2
+### MiPush v3.4.0
 [小米消息推送服务](http://dev.xiaomi.com/console/appservice/push.html)
 1. 引入jar
 2. Android中声明权限和activity
-3. 引入logo资源文件
 
 ```gradle
 dependencies {
-    compile 'com.idogfooding.bone:MiPush:v3.2.2_r4@aar'
+    compile 'com.idogfooding.bone:MiPush:v3.4.0_r5@aar'
 }
 ```
 
