@@ -69,11 +69,11 @@ dependencies {
 
 ### ShareSDK
 [第三方登录和社会化分享](http://sharesdk.mob.com/downloadDetail/ShareSDK/android)
-version: v2.8.3
+version: v3.0.0
 
 ```gradle
 dependencies {
-    compile 'com.idogfooding.bone:ShareSDK:v2.8.3_r5@aar'
+    compile 'com.idogfooding.bone:ShareSDK:v3.0.0_r8@aar'
 }
 ```
 
