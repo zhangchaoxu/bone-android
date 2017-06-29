@@ -16,7 +16,7 @@ public class OnekeyShareUtils {
      * @param title
      * @param imgUrl
      */
-    public void shareLink(Context context, String url, String title, String imgUrl) {
+    public static void shareLink(Context context, String url, String title, String imgUrl) {
         MobSDK.init(context);
         OnekeyShare oks = new OnekeyShare();
         oks.disableSSOWhenAuthorize();
