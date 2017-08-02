@@ -16,4 +16,5 @@ public class MyAuthorizeAdapter extends AuthorizeAdapter {
         hideShareSDKLogo();
         disablePopUpAnimation();
     }
+
 }
