@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "v3.4.0_r5"
+version = "v3.4.5_r6"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -13,7 +13,7 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 5
+        versionCode 6
         versionName version
 
         manifestPlaceholders = ["@PACKAGE_NAME": ""]
