@@ -2,18 +2,24 @@ package com.idogfooding.tbs.utils;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Canvas;
+import android.graphics.Color;
+import android.os.Build;
 import android.util.AttributeSet;
-import android.view.View;
 
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebSettings.LayoutAlgorithm;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
 
+/**
+ * X5WebView
+ *
+ * @author Charles 
+ */
 public class X5WebView extends WebView {
 
     private WebViewClient client = new WebViewClient() {
+
         /**
          * 防止加载网页时调起系统浏览器
          */
@@ -30,11 +36,17 @@ public class X5WebView extends WebView {
         // this.setWebChromeClient(chromeClient);
         // WebStorage webStorage = WebStorage.getInstance();
         initWebViewSettings();
-        this.getView().setClickable(true);
+        getView().setClickable(true);
+        // fix the issue that black background in scroll
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+            setBackgroundColor(0x00000000);
+        } else {
+            setBackgroundColor(Color.argb(1, 0, 0, 0));
+        }
     }
 
     private void initWebViewSettings() {
-        WebSettings webSetting = this.getSettings();
+        WebSettings webSetting = getSettings();
         webSetting.setJavaScriptEnabled(true);
         webSetting.setJavaScriptCanOpenWindowsAutomatically(true);
         webSetting.setAllowFileAccess(true);
@@ -53,16 +65,6 @@ public class X5WebView extends WebView {
         webSetting.setPluginState(WebSettings.PluginState.ON_DEMAND);
         // webSetting.setRenderPriority(WebSettings.RenderPriority.HIGH);
         webSetting.setCacheMode(WebSettings.LOAD_NO_CACHE);
-    }
-
-    @Override
-    protected boolean drawChild(Canvas canvas, View child, long drawingTime) {
-        return super.drawChild(canvas, child, drawingTime);
-    }
-
-    public X5WebView(Context arg0) {
-        super(arg0);
-        setBackgroundColor(85621);
     }
 
 }
