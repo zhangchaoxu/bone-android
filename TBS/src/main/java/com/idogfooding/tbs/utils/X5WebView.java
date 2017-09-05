@@ -14,7 +14,7 @@ import com.tencent.smtt.sdk.WebViewClient;
 /**
  * X5WebView
  *
- * @author Charles 
+ * @author Charles
  */
 public class X5WebView extends WebView {
 
