@@ -37,11 +37,10 @@ dependencies {
 
 ### WxCommon
 [微信分享、登录、收藏、支付等功](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319167&token=&lang=zh_CN)
-version: v3.1.1
 
 ```gradle
 dependencies {
-    compile 'com.idogfooding.bone:WxCommon:v3.1.1_r2@aar'
+    compile 'com.idogfooding.bone:WxCommon:v1.4.0_r3@aar'
 }
 ```
 
