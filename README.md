@@ -13,10 +13,10 @@ bone的目的是为了解决在引入这些sdk的过程中可能会存在以下�
 ## Module Libs
 
 ### app
-TODO demo app
+demo app see [backbone](https://github.com/zhangchaoxu/backbone-android)
  
 ### bone
-this lib is @deprecated.
+this lib is @deprecated with [backbone](https://github.com/zhangchaoxu/backbone-android)
 
 ```gradle
 dependencies {
