@@ -3,12 +3,12 @@
 ## About
 ![Logo with Title]()
 在Android开发的过程中,或多或少会以来一些云服务商提供的SDK,比如小米推送、百度定位、支付宝支付、微信登录等。
-本Repo的目的是为了解决在引入这些sdk的过程中可能会存在以下问题：
-1. sdk未发布到中央仓库,需要手动加入jar、so，甚至一些资源文件;
+bone的目的是为了解决在引入这些sdk的过程中可能会存在以下问题：
+1. 部分sdk未发布到中央仓库,需要手动加入jar、so，甚至一些资源文件;
 2. 需要侵入AndroidManifest.xml,做权限声明,activity/service,id/key等的定义;
 
 ## Module Version
-各个sdk版本定义依据[sdkversion]_r[buildversion]的方式定义，如
+各个sdk版本定义依据[sdkVersion]_r[buildVersion]的方式定义，如
 小米消息推送服务SDK，sdk原始版本是v3.2.2,是这个model的第4次build,因此按本号是v3.2.2_r4
 
 ## Module Libs
@@ -46,14 +46,16 @@ dependencies {
 }
 ```
 
-### MiPush v3.4.0
+### MiPush
 [小米消息推送服务](http://dev.xiaomi.com/console/appservice/push.html)
+[原使用指南](https://dev.mi.com/console/doc/detail?pId=41)
+#### 改动
 1. 引入jar
-2. Android中声明权限和activity
+2. 加入权限声明和activity
 
 ```gradle
 dependencies {
-    compile 'com.idogfooding.bone:MiPush:v3.4.0_r5@aar'
+    compile 'com.idogfooding.bone:MiPush:v3.5.1_r7@aar'
 }
 ```
 

@@ -1,3 +1,4 @@
+apply from: '../cfg.gradle'
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
@@ -5,14 +6,15 @@ apply plugin: 'com.jfrog.bintray'
 version = "v3.5.0.1004_r8"
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
 
     //resourcePrefix "tbs_"
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+
         versionCode 8
         versionName version
 
@@ -35,8 +37,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
-
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:' + versions.supportLib
 }
 
 def siteUrl = 'https://github.com/zhangchaoxu/bone-android'

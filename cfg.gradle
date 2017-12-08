@@ -1,0 +1,11 @@
+ext.versions = [
+        minSdk      : 16,
+        compileSdk  : 27,
+        targetSdk   : 27,
+        buildTools  : '27.0.2',
+        supportLib  : '27.0.1',
+        multidex    : '1.0.2',
+        guava       : '23.0-android',
+        gradlePlugin: '3.0.0',
+        aptPlugin   : '1.8',
+]
