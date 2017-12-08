@@ -1,7 +1,6 @@
 # bone-android | [![Build Status](https://travis-ci.org/zhangchaoxu/bone-android.png?branch=master)](https://travis-ci.org/zhangchaoxu/bone-android)
 
 ## About
-![Logo with Title]()
 在Android开发的过程中,或多或少会以来一些云服务商提供的SDK,比如小米推送、百度定位、支付宝支付、微信登录等。
 bone的目的是为了解决在引入这些sdk的过程中可能会存在以下问题：
 1. 部分sdk未发布到中央仓库,需要手动加入jar、so，甚至一些资源文件;
@@ -25,14 +24,14 @@ dependencies {
 }
 ```
 
-### Alipay v15.3.3(20170309)
+### Alipay
 [支付宝App支付SDK](https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.5LlDVj&treeId=193&articleId=105051&docType=1)
 1. 引入jar
 2. Android中声明权限和service
 
 ```gradle
 dependencies {
-    compile 'com.idogfooding.bone:Alipay:v15.3.3_r4@aar'
+    compile 'com.idogfooding.bone:Alipay:v15.4.5_r5@aar'
 }
 ```
 
@@ -71,15 +70,14 @@ dependencies {
 
 ### ShareSDK
 [第三方登录和社会化分享](http://sharesdk.mob.com/downloadDetail/ShareSDK/android)
-version: v3.0.0
 
 ```gradle
 dependencies {
-    compile 'com.idogfooding.bone:ShareSDK:v3.0.0_r8@aar'
+    compile 'com.idogfooding.bone:ShareSDK:v3.1.2_r11@aar'
 }
 ```
 
-集成了onesharesdk和一些资源，lib只包含微信好友和微信朋友圈，若需要其他的，请自行加入app的libs。
+集成了onesharesdk和一些资源，lib只包含核心和微信核心库，若需要其他的，请自行加入app的libs。
 
 使用方法：
 0. 将需要的其他libs加入app libs，如新浪微博、qq等
@@ -90,14 +88,14 @@ dependencies {
 
 更多使用方法见[官方说明](http://wiki.mob.com/Android_%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/)
 
-### TBS v3.1
+### TBS
 [腾讯浏览服务](http://x5.tencent.com/tbs/index.html)
 1. 集成Android SDK（完整版）
 2. Android Manifest中声明权限和VideoActivity
 
 ```gradle
 dependencies {
-    compile 'com.idogfooding.bone:TBS:v3.1_r2@aar'
+    compile 'com.idogfooding.bone:TBS:v3.5.0.1004_r9@aar'
 }
 ```
 更多使用方法见[官方说明](https://x5.tencent.com/tbs/guide/sdkInit.html)

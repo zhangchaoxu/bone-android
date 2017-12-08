@@ -1,9 +1,10 @@
 apply from: '../cfg.gradle'
+
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "v3.5.0.1004_r8"
+version = "v3.5.0.1004_r9"
 
 android {
     compileSdkVersion versions.compileSdk
@@ -15,7 +16,7 @@ android {
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
 
-        versionCode 8
+        versionCode 9
         versionName version
 
         ndk {

@@ -1,6 +1,5 @@
 package com.idogfooding.sharesdk;
 
-
 import android.content.Context;
 
 import com.mob.MobSDK;

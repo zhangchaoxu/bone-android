@@ -4,19 +4,19 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "v3.0.0_r10"
+version = "v3.1.2_r11"
 
 android {
     compileSdkVersion versions.compileSdk
     buildToolsVersion versions.buildTools
 
-    resourcePrefix "sharesdk_"
+    // resourcePrefix "sharesdk_"
 
     defaultConfig {
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
 
-        versionCode 10
+        versionCode 11
         versionName version
     }
 

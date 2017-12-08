@@ -1,0 +1,1 @@
+gradlew clean :WxCommon:bintrayUpload
