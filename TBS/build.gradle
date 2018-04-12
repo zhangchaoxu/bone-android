@@ -4,7 +4,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "v3.5.0.1004_r9"
+version = "v3.6.0_r10"
 
 android {
     compileSdkVersion versions.compileSdk
@@ -16,7 +16,7 @@ android {
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
 
-        versionCode 9
+        versionCode 10
         versionName version
 
         ndk {
@@ -37,8 +37,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
-    compile 'com.android.support:appcompat-v7:' + versions.supportLib
+    api fileTree(dir: 'libs', include: '*.jar')
+    api 'com.android.support:appcompat-v7:' + versions.supportLib
 }
 
 def siteUrl = 'https://github.com/zhangchaoxu/bone-android'
