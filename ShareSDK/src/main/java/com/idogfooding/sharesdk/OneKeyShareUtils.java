@@ -8,7 +8,7 @@ import cn.sharesdk.framework.Platform;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 import cn.sharesdk.onekeyshare.ShareContentCustomizeCallback;
 
-public class OnekeyShareUtils {
+public class OneKeyShareUtils {
 
     public static void shareLink(Context context, final String url, final String title, final String content, final String imgUrl) {
         MobSDK.init(context);
