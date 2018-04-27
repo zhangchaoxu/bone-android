@@ -31,7 +31,7 @@ dependencies {
 
 ```gradle
 dependencies {
-    compile 'com.idogfooding.bone:Alipay:v15.4.5_r5@aar'
+    api 'com.idogfooding.bone:Alipay:v15.5.3_r6@aar'
 }
 ```
 
@@ -40,7 +40,7 @@ dependencies {
 
 ```gradle
 dependencies {
-    compile 'com.idogfooding.bone:WxCommon:v1.4.0_r3@aar'
+    api 'com.idogfooding.bone:WxCommon:v3.1.1_r5@aar'
 }
 ```
 
