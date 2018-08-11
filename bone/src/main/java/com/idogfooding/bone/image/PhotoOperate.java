@@ -86,8 +86,12 @@ public class PhotoOperate {
         } catch (Exception e) {
             Log.e(PhotoOperate.class.getSimpleName(), e.getMessage());
         } finally {
-            inputChannel.close();
-            outputChannel.close();
+            if (null != inputChannel) {
+                inputChannel.close();
+            }
+            if (null != outputChannel) {
+                outputChannel.close();
+            }
         }
     }
 
