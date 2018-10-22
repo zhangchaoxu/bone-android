@@ -1,1 +1,2 @@
-include ':BaiduMap', ':MiPush', ':EaseUI', ':Alipay', ':WxCommon', ':ShareSDK', ':TBS'
+include ':MiPush',  ':Alipay', ':WxCommon', ':TBS'
+//':BaiduMap', ':EaseUI',':ShareSDK',
