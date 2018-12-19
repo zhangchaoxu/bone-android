@@ -4,7 +4,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "v3.6.0_r13"
+version = "v3.6.0_r14"
 
 android {
     compileSdkVersion versions.compileSdk
@@ -16,7 +16,7 @@ android {
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
 
-        versionCode 13
+        versionCode 14
         versionName version
 
         ndk {
