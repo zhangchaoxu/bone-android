@@ -3,7 +3,6 @@ package com.idogfooding.tbs.utils;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Build;
 import android.util.AttributeSet;
 
 import com.tencent.smtt.sdk.WebSettings;
@@ -37,22 +36,18 @@ public class X5WebView extends WebView {
         // WebStorage webStorage = WebStorage.getInstance();
         initWebViewSettings();
         getView().setClickable(true);
-        // fix the issue that black background in scroll
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-            setBackgroundColor(0x00000000);
-        } else {
-            setBackgroundColor(Color.argb(1, 0, 0, 0));
-        }
+        setBackgroundColor(Color.argb(1, 0, 0, 0));
     }
 
-    private void initWebViewSettings() {
+    protected void initWebViewSettings() {
         WebSettings webSetting = getSettings();
         webSetting.setJavaScriptEnabled(true);
         webSetting.setJavaScriptCanOpenWindowsAutomatically(true);
         webSetting.setAllowFileAccess(true);
         webSetting.setLayoutAlgorithm(LayoutAlgorithm.NARROW_COLUMNS);
-        webSetting.setSupportZoom(true);
-        webSetting.setBuiltInZoomControls(true);
+        webSetting.setSupportZoom(false);
+        webSetting.setBuiltInZoomControls(false);
+        webSetting.setDisplayZoomControls(false);
         webSetting.setUseWideViewPort(true);
         webSetting.setSupportMultipleWindows(true);
         webSetting.setLoadWithOverviewMode(true);
